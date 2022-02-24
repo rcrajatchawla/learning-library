@@ -2,7 +2,9 @@
 
 ## Introduction
 
-OCI Language empowers developers with production ready pre-trained models to automate sophisticated text analysis at scale without requiring any machine learning expertise. It can be accessed through REST APIs and SDKs.
+Oracle Cloud Infrastructure provides a number of Software Development Kits (SDKs) to facilitate development of custom solutions. SDKs allow you to build and deploy apps that integrate with Oracle Cloud Infrastructure services. Each SDK also includes tools and artifacts you need to develop an app, such as code samples and documentation. In addition, if you want to contribute to the development of the SDKs, they are all open source and available on GitHub.
+
+You can invoke OCI Language capabilities through the OCI SDKs. In this lab session, we will show several code snippets to access OCI Language through the OCI SDKs. You do not need to execute the snippets, but review them to understand what information and steps are needed to implement your own integration. In addition, you can find OCI Language samples in different programming languages in this [github](https://github.com/oracle/oci-data-science-ai-samples/tree/master/ai_services/language) repository.
 
 The Language service contains these pretrained language processing capabilities:
 
@@ -61,4 +63,4 @@ Explore the Language service within the Oracle Cloud AI service group to perform
     * Rajat Chawla  - Oracle AI OCI Langauge Services
     * Ankit Tyagi -  Oracle AI OCI Langauge Services
 * **Last Updated By/Date**
-    * Srijon Sarkar  - Oracle AI Services, September 2021
+    * Rajat Chawla  - Oracle AI Services, February 2021
