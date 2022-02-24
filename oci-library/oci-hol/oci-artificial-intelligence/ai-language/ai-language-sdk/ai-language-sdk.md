@@ -63,7 +63,7 @@ Copy the values shown on the console.
 
 Create a config file in the .oci folder and paste the values copied.
 Replace the key_file value with the path of your generated API Key.
-    ![](./images/config2.png " ")
+    ![](./images/conf2.png " ")
 
 
 

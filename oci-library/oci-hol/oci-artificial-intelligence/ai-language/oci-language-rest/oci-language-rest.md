@@ -40,7 +40,7 @@ Enter name to indentify forked OCI credentials environment, select the workspace
 
 
 ### 3. Set the Variables
-Navigate to your workspace and open newly forked environment (OCI Credentials), and set the variables tenancyId, authUserId, keyFingerprint and private Key. These are same that are found in the .oci file you created in the Lab 3 (Task 3->Step4).
+Navigate to your workspace and open newly forked environment (OCI Credentials), and set the variables tenancyId, authUserId, keyFingerprint and private Key. These are same that are found in the .oci file you created in the Lab 3 (Task 1 -> Step 4).
 
 Make sure to set both Initial Value and Current Value of the variables(set both as the same value).
 
