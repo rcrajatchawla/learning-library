@@ -1,4 +1,4 @@
-# Building Microservices with Oracle Converged Database
+# Building Microservices with Converged Oracle Database
 ## Introduction and Overview
 
 [](youtube:v0nYRueADbo)

@@ -8,25 +8,25 @@ When Oracle Data Pump Import runs in transportable tablespace mode, the metadata
 
 - `KEEP_READ_ONLY`: Setting this value lets you import tablespace files mounted on two different databases. The database doesn't automatically rebuild tablespace bitmaps to reclaim space during import, making the import process faster at the expense of regaining free space within the tablespace data files.
 
-- `NO_BITMAP_REBUILD`: Setting this value causes the transportable data files header bitmaps to not be rebuilt during the import. Not reclaiming unused data segments reduces the time of the import operation. You can rebuild bit maps at a later time by using the procedure `dbms_space_admin.tablespace_rebuild_bitmaps`.
+- `NO_BITMAP_REBUILD`: Setting this value causes the transportable data files header bitmaps to not be rebuilt during the import. Not reclaiming unused data segments reduces the time of the import operation. You can rebuild bitmaps at a later time by using the procedure `dbms_space_admin.tablespace_rebuild_bitmaps`.
 
 To export in transportable tablespace mode with Oracle Data Pump Export, your tablespaces need to be in read-only mode. Starting in Oracle Database 19c, Oracle Data Pump Export has a new parameter, `TTS_CLOSURE_CHECK`, that can decrease export time. When `TTS_CLOSURE_CHECK` is set to `TEST_MODE`, you can keep your tablespaces in READ WRITE mode during the export and obtain timing requirements for the export operation. Keep in mind that `TEST_MODE` is for testing purposes only and the resulting dump file is unavailable for import. Setting the `TTS_CLOSURE_CHECK` to `OFF` skips the closure check and is another way to decrease export time. A closure check is unnecessary when the DBA knows that the transportable set is self-contained.
 
-In this lab, you use Oracle Data Pump Export and Oracle Data Pump Import to export a transportable tablespace from PDB1 (in CDB1) and import it into PDB2. You experiment with read-only mode for the tablespace, and try out some of the parameters that help to decrease the export and import time.
+In this lab, you use Oracle Data Pump Export and Oracle Data Pump Import to export a transportable tablespace from PDB1 (in CDB1) and import it into PDB2. You experiment with read-only mode for the tablespace, and try out some of the parameters that help to decrease export and import time. Use the `workshop-installed` compute instance.
 
 
-Estimated Lab Time: 40 minutes
+Estimated Time: 25 minutes
 
 ### Objectives
 
 In this lab, you will:
 
-- Set up your environment
+- Prepare your environment
 - Export the `test` tablespace from `PDB1` in transportable tablespace mode
 - Copy PDB1's data files to PDB2's target directory and create the `HR` user in PDB2
 - Import PDB1's `test` tablespace into PDB2 while keeping the imported tablespace in read-only mode
 - Import PDB1's `test` tablespace into PDB2 without rebuilding header bitmaps in the data file
-- Export the `test` tablespace from `PDB1` with the `TTS_CLOSURE_CHECK` parameter set to `DEMO_MODE` to get a timing estimation of the TTS export operation
+- Export the `test` tablespace from `PDB1` with the `TTS_CLOSURE_CHECK` parameter set to `TEST_MODE` to get a timing estimation of the TTS export operation
 - Export the `test` tablespace from `PDB1` with the `TTS_CLOSURE_CHECK` parameter set to `OFF` to skip the closure check
 - Verify that you can import the `test` tablespace from PDB1 into PDB2
 - Reset your environment
@@ -35,26 +35,25 @@ In this lab, you will:
 ### Prerequisites
 
 This lab assumes you have:
-- Obtained and signed in to your `workshop-installed` compute instance. If not, see the lab called **Obtain a Compute Image with Oracle Database 19c Installed**.
+- Obtained and signed in to your `workshop-installed` compute instance.
 
-## Task 1: Set up your environment
+## Task 1: Prepare your environment
 
 In this lab, you require two PDBs. The `workshop-installed` compute instance comes with a container database (CDB1) that has one PDB already created called PDB1. In this task, you add another PDB to CDB1 called PDB2. You also create a tablespace called `test` in PDB1 and make sure that there is no tablespace by that name in PDB2.
 
-1. Open a terminal window.
+1. Open a terminal window on the desktop.
 
-2. Set the environment variable to CDB1. Enter **CDB1** at the prompt.
+2. Set the Oracle environment variables. At the prompt, enter **CDB1**.
 
     ```
     <copy>. oraenv</copy>
     CDB1
     ```
 
-3. Run the `cleanup_PDBs_in_CDB1.sh` shell script to recreate PDB1 and remove other PDBs in the container database if they exist. You can ignore any error messages.
+3. Run the `cleanup_PDBs_in_CDB1.sh` shell script to recreate PDB1 and remove other PDBs in CDB1 if they exist. You can ignore any error messages.
 
     ```
     $ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
-
     ```
 
 
@@ -66,7 +65,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
 5. Run the `create_drop_TBS.sh` shell script.
 
-    The first part of this script connects to PDB1 and creates a `test` tablespace, adds an `HR.TABTEST` table to that tablespace and populates it, and then defines a Oracle Data Pump dump file directory called `dp_pdb1` as `/tmp`. The second part of the script connects to PDB2 and deletes the `TEST` tablespace. You can ignore any error messages.
+    The first part of this script connects to PDB1 and creates a `test` tablespace, adds an `HR.TABTEST` table to that tablespace and populates it, and then defines an Oracle Data Pump dump file directory called `dp_pdb1` as `/tmp`. The second part of the script connects to PDB2 and deletes the `TEST` tablespace. You can ignore any error messages.
 
     ```
     $ <copy>$HOME/labs/19cnf/create_drop_TBS.sh</copy>
@@ -113,6 +112,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
     ```
     SQL> <copy>DROP TABLESPACE test INCLUDING CONTENTS AND DATAFILES;</copy>
+
     Tablespace dropped.
     ```
 
@@ -129,6 +129,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
     ```
     SQL> <copy>ALTER TABLESPACE TEST READ ONLY;</copy>
+
     Tablespace altered.
     ```
 
@@ -149,13 +150,13 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
       LOGFILE=tts.log \
       REUSE_DUMPFILES=YES</copy>
 
-    Export: Release 19.0.0.0.0 - Production on Wed Jul 21 23:49:33 2021
-    Version 19.11.0.0.0
+    Export: Release 19.0.0.0.0 - Production on Thu Aug 26 14:23:59 2021
+    Version 19.12.0.0.0
 
     Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
     Connected to: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-    Starting "SYS"."SYS_EXPORT_TRANSPORTABLE_01":  "sys/********@PDB1 AS SYSDBA" DIRECTORY=dp_pdb1 dumpfile=PDB1.dmp TRANSPORT_TABLESPACES=test TRANSPORT_FULL_CHECK=YES LOGFILE=tts.log REUSE_DUMPFILES=YES
+    Starting "SYS"."SYS_EXPORT_TRANSPORTABLE_01":  "sys/********@PDB1 AS SYSDBA" DIRECTORY=dp_pdb1 DUMPFILE=PDB1.dmp TRANSPORT_TABLESPACES=test TRANSPORT_FULL_CHECK=YES LOGFILE=tts.log REUSE_DUMPFILES=YES
     Processing object type TRANSPORTABLE_EXPORT/STATISTICS/TABLE_STATISTICS
     Processing object type TRANSPORTABLE_EXPORT/STATISTICS/MARKER
     Processing object type TRANSPORTABLE_EXPORT/PLUGTS_BLK
@@ -167,8 +168,8 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
       /tmp/PDB1.dmp
     ******************************************************************************
     Datafiles required for transportable tablespace TEST:
-    /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf
-    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully completed at Wed Jul 21 23:50:00 2021 elapsed 0 00:00:24
+      /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf
+    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully completed at Thu Aug 26 14:24:35 2021 elapsed 0 00:00:33
     ```
 
 
@@ -184,13 +185,15 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
     ```
     SQL> <copy>CREATE DIRECTORY dp_pdb2 AS '/tmp';</copy>
+
     Directory created.
     ```
 
-3. Create the `HR` user in PDB2. You need to pre-create the users that have objects in the TTS.
+3. Create an `HR` user in PDB2. You need to pre-create the users that have objects in the transportable tablespace.
 
     ```
     SQL> <copy>CREATE USER hr IDENTIFIED BY Ora4U_1234;</copy>
+
     User created.
     ```
 
@@ -218,20 +221,19 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
       TRANSPORT_DATAFILES='/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf' \
       TRANSPORTABLE=KEEP_READ_ONLY</copy>
 
-  Import: Release 19.0.0.0.0 - Production on Thu Jul 22 00:18:53 2021
-  Version 19.11.0.0.0
+    Import: Release 19.0.0.0.0 - Production on Thu Aug 26 14:30:05 2021
+    Version 19.12.0.0.0
+    Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
-  Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
-
-  Connected to: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
-  Master table "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully loaded/unloaded
-  Starting "SYS"."SYS_IMPORT_TRANSPORTABLE_01":  "sys/********@PDB2 AS SYSDBA" DIRECTORY=dp_pdb2 DUMPFILE=PDB1.dmp TRANSPORT_DATAFILES=/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf TRANSPORTABLE=KEEP_READ_ONLY
-  Processing object type TRANSPORTABLE_EXPORT/PLUGTS_BLK
-  Processing object type TRANSPORTABLE_EXPORT/TABLE
-  Processing object type TRANSPORTABLE_EXPORT/STATISTICS/TABLE_STATISTICS
-  Processing object type TRANSPORTABLE_EXPORT/STATISTICS/MARKER
-  Processing object type TRANSPORTABLE_EXPORT/POST_INSTANCE/PLUGTS_BLK
-  Job "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully completed at Thu Jul 22 00:19:08 2021 elapsed 0 00:00:14
+    Connected to: Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+    Master table "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully loaded/unloaded
+    Starting "SYS"."SYS_IMPORT_TRANSPORTABLE_01":  "sys/********@PDB2 AS SYSDBA" DIRECTORY=dp_pdb2 DUMPFILE=PDB1.dmp TRANSPORT_DATAFILES=/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf TRANSPORTABLE=KEEP_READ_ONLY
+    Processing object type TRANSPORTABLE_EXPORT/PLUGTS_BLK
+    Processing object type TRANSPORTABLE_EXPORT/TABLE
+    Processing object type TRANSPORTABLE_EXPORT/STATISTICS/TABLE_STATISTICS
+    Processing object type TRANSPORTABLE_EXPORT/STATISTICS/MARKER
+    Processing object type TRANSPORTABLE_EXPORT/POST_INSTANCE/PLUGTS_BLK
+    Job "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully completed at Thu Aug 26 14:30:31 2021 elapsed 0 00:00:22
     ```
 
 8. Connect to PDB2.
@@ -250,15 +252,13 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     READ ONLY
     ```
 
-
-
 ## Task 5: Import PDB1's `test` tablespace into PDB2 without rebuilding header bitmaps in the data file
-
 
 1. Still connected to PDB2, drop the `test` tablespace that you previously imported into PDB2.
 
     ```
     SQL> <copy>DROP TABLESPACE test INCLUDING CONTENTS AND DATAFILES;</copy>
+
     Tablespace dropped.
     ```
 
@@ -283,8 +283,8 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     TRANSPORT_DATAFILES='/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf' \
     TRANSPORTABLE=NO_BITMAP_REBUILD</copy>
 
-    Import: Release 19.0.0.0.0 - Production on Thu Jul 22 00:29:16 2021
-    Version 19.11.0.0.0
+    Import: Release 19.0.0.0.0 - Production on Thu Aug 26 14:33:57 2021
+    Version 19.12.0.0.0
 
     Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
@@ -296,7 +296,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     Processing object type TRANSPORTABLE_EXPORT/STATISTICS/TABLE_STATISTICS
     Processing object type TRANSPORTABLE_EXPORT/STATISTICS/MARKER
     Processing object type TRANSPORTABLE_EXPORT/POST_INSTANCE/PLUGTS_BLK
-    Job "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully completed at Thu Jul 22 00:29:21 2021 elapsed 0 00:00:04
+    Job "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully completed at Thu Aug 26 14:34:03 2021 elapsed 0 00:00:05
     ```
 
 5. Connect to PDB2 as the `SYS` user.
@@ -319,6 +319,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
     ```
     SQL> <copy>ALTER TABLESPACE test READ WRITE;</copy>
+
     Tablespace altered.
     ```
 
@@ -328,6 +329,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
     ```
     SQL> <copy>exec DBMS_SPACE_ADMIN.TABLESPACE_REBUILD_BITMAPS('TEST')</copy>
+
     PL/SQL procedure successfully completed.
     ```
 
@@ -337,9 +339,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     SQL> <copy>EXIT</copy>
     ```
 
-
-
-## Task 6: Export the `test` tablespace from `PDB1` with the `TTS_CLOSURE_CHECK` parameter set to `DEMO_MODE` to get a timing estimation of the TTS export operation
+## Task 6: Export the `test` tablespace from `PDB1` with the `TTS_CLOSURE_CHECK` parameter set to `TEST_MODE` to get a timing estimation of the TTS export operation
 
 1. Execute the `create_drop_TBS.sh` shell script. You can ignore the error messages.
 
@@ -359,8 +359,8 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
       LOGFILE=tts.log \
       REUSE_DUMPFILES=YES</copy>
 
-    Export: Release 19.0.0.0.0 - Production on Thu Jul 22 00:49:17 2021
-    Version 19.11.0.0.0
+    Export: Release 19.0.0.0.0 - Production on Thu Aug 26 14:37:17 2021
+    Version 19.12.0.0.0
 
     Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
@@ -374,12 +374,12 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     Master table "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully loaded/unloaded
     ******************************************************************************
     Dump file set for SYS.SYS_EXPORT_TRANSPORTABLE_01 is:
-    /tmp/PDB1.dmp
+      /tmp/PDB1.dmp
     Dump file set is unusable. TEST_MODE requested.
     ******************************************************************************
     Datafiles required for transportable tablespace TEST:
-    /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf
-    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully completed at Thu Jul 22 00:49:34 2021 elapsed 0 00:00:17
+      /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf
+    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully completed at Thu Aug 26 14:37:46 2021 elapsed 0 00:00:28
     ```
 
 3. Question: Can you use the dump file to import the `test` tablespace into PDB2? Try running the following Oracle Data Pump Import command to find out.
@@ -391,8 +391,8 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
       TRANSPORT_DATAFILES='/u02/app/oracle/oradata/CDB1/PDB2/test01.dbf' \
       LOGFILE=tts.log</copy>
 
-    Import: Release 19.0.0.0.0 - Production on Thu Jul 22 00:52:09 2021
-    Version 19.11.0.0.0
+    Import: Release 19.0.0.0.0 - Production on Thu Aug 26 14:39:48 2021
+    Version 19.12.0.0.0
 
     Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
@@ -401,6 +401,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     ORA-39000: bad dump file specification
     ORA-39398: Cannot load data. Data Pump dump file "/tmp/PDB1.dmp" was created in TEST_MODE.
     ```
+
     Answer: The output indicates that the resulting export dump file is not available for use by the Oracle Data Pump Import utility.
 
 ## Task 7: Export the `test` tablespace from `PDB1` with the `TTS_CLOSURE_CHECK` parameter set to `OFF` to skip the closure check
@@ -408,7 +409,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 1. Try running the Oracle Data Pump Export transportable operation again with the `TTS_CLOSURE_CHECK` parameter set to `OFF`. This setting skips the closure check. Of course you are sure that the transportable tablespace set is contained!
 
     ```
-  $ <copy>expdp \"sys/Ora4U_1234@PDB1 as sysdba\" \
+    $ <copy>expdp \"sys/Ora4U_1234@PDB1 as sysdba\" \
     DIRECTORY= dp_pdb1 \
     dumpfile=PDB1.dmp \
     TRANSPORT_TABLESPACES=test \
@@ -416,8 +417,8 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     LOGFILE=tts.log \
     REUSE_DUMPFILES=YES</copy>
 
-    Export: Release 19.0.0.0.0 - Production on Thu Jul 22 01:36:04 2021
-    Version 19.11.0.0.0
+    Export: Release 19.0.0.0.0 - Production on Thu Aug 26 14:42:52 2021
+    Version 19.12.0.0.0
 
     Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
@@ -429,7 +430,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     ORA-39185: The transportable tablespace failure list is
 
     ORA-29335: tablespace 'TEST' is not read only
-    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" stopped due to fatal error at Thu Jul 22 01:36:10 2021 elapsed 0 00:00:05
+    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" stopped due to fatal error at Thu Aug 26 14:42:57 2021 elapsed 0 00:00:05
     ```
 
     Notice that the export operation fails because the `test` tablespace is not read-only.
@@ -448,6 +449,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
     ```
     SQL> <copy>ALTER TABLESPACE test READ ONLY;</copy>
+
     Tablespace altered.
     ```
 
@@ -468,8 +470,8 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     LOGFILE=tts.log \
     REUSE_DUMPFILES=YES</copy>
 
-    Export: Release 19.0.0.0.0 - Production on Thu Jul 22 01:46:23 2021
-    Version 19.11.0.0.0
+    Export: Release 19.0.0.0.0 - Production on Thu Aug 26 14:45:02 2021
+    Version 19.12.0.0.0
 
     Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
@@ -483,11 +485,11 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     Master table "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully loaded/unloaded
     ******************************************************************************
     Dump file set for SYS.SYS_EXPORT_TRANSPORTABLE_01 is:
-    /tmp/PDB1.dmp
+      /tmp/PDB1.dmp
     ******************************************************************************
     Datafiles required for transportable tablespace TEST:
-    /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf
-    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully completed at Thu Jul 22 01:46:39 2021 elapsed 0 00:00:15
+      /u01/app/oracle/oradata/CDB1/PDB1/test01.dbf
+    Job "SYS"."SYS_EXPORT_TRANSPORTABLE_01" successfully completed at Thu Aug 26 14:45:19 2021 elapsed 0 00:00:16
     ```
 
     Notice that the export operation succeeded because you changed the `test` tablespace to be read-only.
@@ -508,8 +510,8 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
       DUMPFILE=PDB1.dmp \
       TRANSPORT_DATAFILES='/u01/app/oracle/oradata/CDB1/PDB2/test01.dbf'</copy>
 
-    Import: Release 19.0.0.0.0 - Production on Thu Jul 22 02:06:37 2021
-    Version 19.11.0.0.0
+    Import: Release 19.0.0.0.0 - Production on Thu Aug 26 14:47:00 2021
+    Version 19.12.0.0.0
 
     Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
 
@@ -521,7 +523,7 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
     Processing object type TRANSPORTABLE_EXPORT/STATISTICS/TABLE_STATISTICS
     Processing object type TRANSPORTABLE_EXPORT/STATISTICS/MARKER
     Processing object type TRANSPORTABLE_EXPORT/POST_INSTANCE/PLUGTS_BLK
-    Job "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully completed at Thu Jul 22 02:06:41 2021 elapsed 0 00:00:04
+    Job "SYS"."SYS_IMPORT_TRANSPORTABLE_01" successfully completed at Thu Aug 26 14:47:05 2021 elapsed 0 00:00:05
     ```
 
     The output verifies that you can import the `test` tablespace from PDB1 into PDB2.
@@ -550,11 +552,17 @@ In this lab, you require two PDBs. The `workshop-installed` compute instance com
 
 ## Task 9: Reset your environment
 
-Run the `cleanup_PDBs_in_CDB1.sh` shell script to recreate PDB1 and remove other PDBs in the container database. You can ignore any error messages.
+1. Run the `cleanup_PDBs_in_CDB1.sh` shell script to recreate PDB1 and remove other PDBs in CDB1. You can ignore any error messages.
 
-```
-$ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
-```
+    ```
+    $ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
+    ```
+
+2. Close the terminal window.
+
+    ```
+    $ <copy>exit</copy>
+    ```
 
 
 ## Learn More
@@ -565,5 +573,5 @@ $ <copy>$HOME/labs/19cnf/cleanup_PDBs_in_CDB1.sh</copy>
 ## Acknowledgements
 
 - **Author**: Dominique Jeunot's, Consulting User Assistance Developer
-- **Contributor** - Jody Glover, Consulting User Assistance Developer
-- **Last Updated By**: Blake Hendricks, Solutions Engineer, August 13 2021
+- **Contributor** - Jody Glover, Principal User Assistance Developer
+- **Last Updated By**: Blake Hendricks, Solutions Engineer, September 2 2021

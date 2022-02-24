@@ -20,15 +20,20 @@ For a hands-on general introduction, you are encouraged to review **[Introductio
 ### Objectives
 
 In this lab, you will:
-* Create function-based spatial indexes for tables with latitude, longitude columns
-* Perform spatial queries to identify the nearest pizza location to customers
+- Create function-based spatial indexes for tables with latitude, longitude columns
+- Perform spatial queries to identify the nearest pizza location to customers
 
 
 ### Prerequisites
 
-* This lab requires completion of Labs 1-4 in the Contents menu on the left.
+- This lab requires completion of Labs 1-4 in the Contents menu on the left.
+- You can complete the prerequisite labs in two ways:
 
-**Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
+    a. Manually run through the labs.
+
+    b. Provision your Autonomous Database and then go to the **Initializing Labs** section in the contents menu on the left. Initialize Labs will create the MOVIESTREAM user plus the required database objects.
+
+> **Note:** If you have a **Free Trial** account, when your Free Trial expires your account will be converted to an **Always Free** account. You will not be able to conduct Free Tier workshops unless the Always Free environment is available. **[Click here for the Free Tier FAQ page.](https://www.oracle.com/cloud/free/faq.html)**
 
 ## Task 1: Prepare the Data
 
@@ -147,7 +152,6 @@ There are 2 scenarios for a nearest neighbor query: search all items for nearest
 This lab is based on scenario 1.  Scenario 2 requires a slightly different syntax for the nearest neighbor SQL operator and adds some complexity to queries at the end of this section. For details on the distinction between these scenarios and the associated syntax, please see the **[nearest neighbor documentation](https://docs.oracle.com/en/database/oracle/oracle-database/19/spatl/spatial-operators-reference.html#GUID-41E6B1FA-1A03-480B-996F-830E8566661D)**.
 
 
-
 1. Begin with a **nearest neighbor query**, which returns item(s) nearest to a specific location. Run the following query to identify the pizza location nearest to customer 1029765.
 
     ```
@@ -164,7 +168,7 @@ This lab is based on scenario 1.  Scenario 2 requires a slightly different synta
 
     ![Nearest neighbor query results](images/spatial-05.png " ")
 
- 2. To return the 5 nearest pizza locations, update the sdo\_num\_res parameter from 1 to 5 and re-run.
+2. To return the 5 nearest pizza locations, update the sdo\_num\_res parameter from 1 to 5 and re-run.
 
     ```
     <copy>
@@ -198,7 +202,7 @@ This lab is based on scenario 1.  Scenario 2 requires a slightly different synta
 
     ![Nearest neighbor query showing distance](images/spatial-07.png " ")
 
- 4. To return the 5 nearest pizza locations with distance, update the sdo\_num\_res parameter from 1 to 5 and re-run. Notice the addition of ORDER BY to order results by distance.
+4. To return the 5 nearest pizza locations with distance, update the sdo\_num\_res parameter from 1 to 5 and re-run. Notice the addition of ORDER BY to order results by distance.
 
     ```
     <copy>
@@ -320,18 +324,20 @@ In customer-managed (non-Autonomous) Oracle Database, the degree of parallelism 
 
 If you would like to purge all changes made in this lab, run the following commands in order.
 
-    <copy>
-    DROP INDEX customer_sidx;
+```
+<copy>
+DROP INDEX customer_sidx;
 
-    DROP INDEX pizza_location_sidx;
+DROP INDEX pizza_location_sidx;
 
-    DELETE FROM user_sdo_geom_metadata
-    WHERE TABLE_NAME in ('CUSTOMER_CONTACT','PIZZA_LOCATION');
+DELETE FROM user_sdo_geom_metadata
+WHERE TABLE_NAME in ('CUSTOMER_CONTACT','PIZZA_LOCATION');
 
-    DROP TABLE customer_nearest_pizza ;
+DROP TABLE customer_nearest_pizza ;
 
-    DROP FUNCTION latlon_to_geometry;
-    </copy>
+DROP FUNCTION latlon_to_geometry;
+</copy>
+```
 
 You may now [proceed to the next lab](#next).
 
@@ -339,6 +345,8 @@ You may now [proceed to the next lab](#next).
 * [Spatial product portal](https://www.oracle.com/database/spatial/)
 * [Spatial documention](https://docs.oracle.com/en/database/oracle/oracle-database/21/spatl/index.html)
 * [Spatial blogs](https://blogs.oracle.com/oraclespatial/)
+* [Performing spatial analyses on Latitude, Longitude data in Oracle Database](https://blogs.oracle.com/oraclespatial/performing-spatial-analyses-on-latitude-longitude-data-in-oracle-database)
+* [Tips on tuning SDO_NN (nearest neighbor) queries](https://blogs.oracle.com/oraclespatial/tips-on-tuning-sdonn-nearest-neighbor-queries)
 
 ## Acknowledgements
 * **Author** - David Lapp, Database Product Management, Oracle

@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Building Microservices with Oracle Converged Database",
+  "workshoptitle": "Building Microservices with Converged Oracle Database",
   "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {
@@ -28,8 +28,8 @@
         "filename": "../../scaling/scaling.md"
       },
       {
-        "title": "Lab 5: Tracing Using Jaeger",
-        "filename": "../../tracing/tracing.md"
+        "title": "Lab 5: Observability",
+        "filename": "../../observability/observability.md"
       },
       {
         "title": "Lab 6: Create an APEX App to Make Sense of the Data",

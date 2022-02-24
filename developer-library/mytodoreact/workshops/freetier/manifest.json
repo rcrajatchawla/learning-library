@@ -13,15 +13,15 @@
         "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md"
       },
       {
-        "title": "Lab 1: Setup Dev Environment",
+        "title": "Tutorial 1: Setup Dev Environment",
         "filename": "../../setup-dev-environment/setup-dev-environment.md"
       },
       {
-        "title": "Lab 2: Backend (Java/Helidon)",
+        "title": "Tutorial 2: Backend (Java/Helidon)",
         "filename": "../../backend/backend.md"
       },
       {
-        "title": "Lab 3: Frontend (React JS)",
+        "title": "Tutorial 3: Frontend (React JS)",
         "filename": "../../frontend/frontend.md"
       },
       {

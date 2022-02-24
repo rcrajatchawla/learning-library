@@ -14,6 +14,14 @@ In this lab, you will:
 * Log in as the user
 * Launch SQL Worksheet
 
+### Prerequisites
+- This lab requires completion of Lab 1, **Provisioning an ADB Instance**, in the Contents menu on the left.
+- You can complete the prerequisite lab in two ways:
+
+    a. Manually run through Lab 1.
+
+    b. Provision your Autonomous Database and then go to the **Initializing Labs** section in the contents menu on the left. Initialize Labs will create the required database objects.
+
 ## Task 1: Create a Database User
 
 When you create a new data warehouse, you automatically get an account called ADMIN that is your super administrator user. In the real world, you will definitely want to keep your data warehouse data completely separate from the administration processes. Therefore, you will need to know how to create separate new users and grant them access to your data warehouse. This section will guide you through this process using the "New User" wizard within the SQL tools.
@@ -41,7 +49,7 @@ For this workshop we need to create one new user.
  - username: **MOVIESTREAM**
  - password: create a suitably strong password, and make note of it, as you will be asked for it in an upcoming step.
 
-    **NOTE - Rules for User Passwords** Autonomous Data Warehouse requires strong passwords. User passwords user must meet the following default password complexity rules:
+    >**Note:** Rules for User Passwords: Autonomous Data Warehouse requires strong passwords. User passwords user must meet the following default password complexity rules:
 
     - Password must be between 12 and 30 characters long
 
@@ -126,9 +134,9 @@ You learned how to use the Create User dialog to create a new user.  You can als
     /</copy>
     ```
 
-    **Note:** DWROLE includes CREATE ANALYTIC VIEW, CREATE ATTRIBUTE DIMENSION, ALTER SESSION, CREATE HIERARCHY, CREATE JOB, CREATE MINING MODEL, CREATE PROCEDURE, CREATE SEQUENCE, CREATE SESSION, CREATE SYNONYM, CREATE TABLE, CREATE TRIGGER, CREATE TYPE, CREATE VIEW, and READ,WRITE ON directory DATA\_PUMP\_DIR.
+    >**Note:** DWROLE includes CREATE ANALYTIC VIEW, CREATE ATTRIBUTE DIMENSION, ALTER SESSION, CREATE HIERARCHY, CREATE JOB, CREATE MINING MODEL, CREATE PROCEDURE, CREATE SEQUENCE, CREATE SESSION, CREATE SYNONYM, CREATE TABLE, CREATE TRIGGER, CREATE TYPE, CREATE VIEW, and READ,WRITE ON directory DATA\_PUMP\_DIR.
 
-    These commands limit the amount of data that a user can create. The commands also give the user all of the privileges required to work with the console, use machine learning and perform graph analyses.
+    These commands give the user all of the privileges required to work with the console, use machine learning and perform graph analyses. The commands also allow the user to change the consumer group for the session (LOW, MEDIUM or HIGH) -  altering levels of performance and concurrency. [See here for more details](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/manage-service-concurrency.html#GUID-400B1460-E44D-4BA5-B216-0B185BE55F8E).
 
 ## Task 3: Log In As the User
 
@@ -168,7 +176,7 @@ In the next labs, you will use the SQL Worksheet application that is built in to
 
     In the query results, you'll see MOVIESTREAM and today's date.  You've successfully run your first Autonomous Database query!
 
-Please *proceed to the next lab*.
+You may now [proceed to the next lab](#next).
 
 ## Learn More
 
@@ -176,4 +184,5 @@ See the documentation on [Managing Users on Autonomous Database](https://docs.o
 
 ## Acknowledgements
 * **Author** - Rick Green, Principal Developer, Database User Assistance
-* **Last Updated By/Date** - Rick Green, July 2021
+* **Contributors** - Marty Gubar
+* **Last Updated By/Date** - Rick Green, August 2021

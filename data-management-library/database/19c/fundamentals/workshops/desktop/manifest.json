@@ -13,42 +13,47 @@
             "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/remote-desktop/using-novnc-remote-desktop.md"
           },
           {
-          "title": "Lab 1: Install Oracle Database 19c with Automatic Root Script Execution",
+              "title": "Initialize Your Environment",
+              "description": "Steps to verify the workshop-installed compute instance and download the lab files.",
+              "filename": "./../../initialize-environment/initialize-environment.md"
+          },
+          {
+          "title": "Install Oracle Database 19c with Automatic Root Script Execution",
           "description": "Install Oracle Database 19c with automatic configuration script execution.",
           "filename": "./../../install-db19c-auto-root-script-execution/install-db19c-auto-root-script-execution.md"
            },
             {
-                "title": "Lab 2: Clone a PDB by Using DBCA in Silent Mode",
+                "title": "Clone a PDB by Using DBCA in Silent Mode",
                 "description": "Clone a PDB by using DBCA in silent mode.",
                 "filename": "./../../clone-pdb-using-dbca-silent-mode/clone-pdb-using-dbca-silent-mode.md"
             },
             {
-                "title": "Lab 3: Relocate a PDB by Using DBCA in Silent Mode",
+                "title": "Relocate a PDB by Using DBCA in Silent Mode",
                 "description": "Relocate a PDB by using DBCA in silent mode.",
                 "filename": "./../../relocate-pdb-using-dbca-silent-mode/relocate-pdb-using-dbca-silent-mode.md"
             },
             {
-                "title": "Lab 4: Duplicate a CDB by Using DBCA in Silent Mode",
+                "title": "Duplicate a CDB by Using DBCA in Silent Mode",
                 "description": "Duplicate a CDB by using DBCA in silent mode.",
                 "filename": "./../../duplicate-cdb-using-dbca-silent-mode/duplicate-cdb-using-dbca-silent-mode.md"
             },
             {
-                "title": "Lab 5: Decrease the Transportable Tablespace (TTS) Import and Export Time",
+                "title": "Decrease the Transportable Tablespace (TTS) Import and Export Time",
                 "description": "Decrease the transportable tablespace (TTS) import and export time.",
                 "filename": "./../../decrease-transportable-tablespace-import-export-time/decrease-transportable-tablespace-import-export-time.md"
             },
             {
-                "title": "Lab 6: Omit the Column Encryption Attribute During Import",
+                "title": "Omit the Column Encryption Attribute During Import",
                 "description": "Omit the column encryption attribute during import.",
                 "filename": "./../../omit-column-encryption-attribute-during-import/omit-column-encryption-attribute-during-import.md"
             },
             {
-                "title": "Lab 7: Use RMAN to Connect to a PDB to Use the Recovery Catalog",
+                "title": "Use RMAN to Connect to a PDB to Use the Recovery Catalog",
                 "description": "Use Resource Manager (RMAN) to connect to a pluggable database (PDB) to use the recovery catalog.",
                 "filename": "./../../use-rman-connect-to-pdb-to-use-recovery-catalog/use-rman-connect-to-pdb-to-use-recovery-catalog.md"
             },
             {
-                "title": "Lab 8: Explore Automatic Deletion of Flashback Logs",
+                "title": "Explore Automatic Deletion of Flashback Logs",
                 "description": "Omit the column encryption attribute during import.",
                 "filename": "./../../explore-automatic-deletion-flashback-logs/explore-automatic-deletion-flashback-logs.md"
             },

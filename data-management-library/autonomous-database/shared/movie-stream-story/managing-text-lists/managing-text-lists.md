@@ -14,6 +14,14 @@ Estimated time: 10 minutes
 
 - Learn how to use the LISTAGG function to concatenate string values into a single row
 
+### Prerequisites
+- This lab requires completion of the previous labs in the Contents menu on the left.
+- You can complete the prerequisite labs in two ways:
+
+    a. Manually run through the labs.
+
+    b. Provision your Autonomous Database and then go to the **Initializing Labs** section in the contents menu on the left. Initialize Labs will create the MOVIESTREAM user plus the required database objects.
+
 ## Task 1: Creating Lists of Customers
 
 1. Creating this type of list as part of a query is actually very easy to do with Autonomous Data Warehouse because we can use the SQL **`LISTAGG`** function. To get started with this query, we first we need a unique list of customers by education:
@@ -54,7 +62,9 @@ Fortunately, Autonomous Data Warehouse has a unique capability in that it can tr
 
 Our `LISTAGG` function looks like this:
 
-<pre>LISTAGG(email, ',' ON OVERFLOW TRUNCATE '...' WITH COUNT) WITHIN GROUP (ORDER BY last_name, first_name) AS customer_list</pre>
+```
+LISTAGG(email, ',' ON OVERFLOW TRUNCATE '...' WITH COUNT) WITHIN GROUP (ORDER BY last_name, first_name) AS customer_list
+```
 
 1. If we wrap this around our original query, we can use the following syntax to create the report we need:
 
@@ -92,6 +102,8 @@ Our `LISTAGG` function looks like this:
 
 We can send this initial report to the marketing team and see if they want us to extract the additional email addresses for them. Fortunately, Autonomous Data Warehouse has the tools to do this and we will explore one of those tools (MATCH_RECOGNIZE) later in this workshop.
 
+You may now [proceed to the next lab](#next).
+
 ### Recap
 
 Let's quickly recap what has been covered in this lab:
@@ -99,8 +111,6 @@ Let's quickly recap what has been covered in this lab:
 - How to use the LISTAGG function to concatenate string values into a single row
 
 - How to manage very, very long text strings so that applications/reports do not break
-
-Please *proceed to the next lab*.
 
 ## **Acknowledgements**
 

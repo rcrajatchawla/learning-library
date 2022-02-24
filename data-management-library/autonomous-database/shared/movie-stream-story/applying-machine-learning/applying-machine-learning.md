@@ -13,6 +13,14 @@ Estimated Lab Time: 10 minutes
 
 - Learn how to interpret the results that are automatically generated
 
+### Prerequisites
+- This lab requires completion of the previous labs in the Contents menu on the left.
+- You can complete the prerequisite labs in two ways:
+
+    a. Manually run through the labs.
+
+    b. Provision your Autonomous Database and then go to the **Initializing Labs** section in the contents menu on the left. Initialize Labs will create the MOVIESTREAM user plus the required database objects.
+
 ### Overview
 
 Autonomous Data Warehouse contains built-in machine learning algorithms. There is a separate workshop that can guide you through creating machine learning models to solve common business problems. In this short lab, the objective is to use one of these built-in algorithms to help us understand the demographic factors that can explain why a customer triggers an "insufficient funds" event against their account. If we can find a way to identify the key demographic attributes associated with this type of event, we can target customers to help them better manage their account and therefore have a better experience on MovieStream.
@@ -71,7 +79,7 @@ In this example we are going to use the EXPLAIN procedure to identifies the attr
 
     ![Query result showing what the table data set looks like](images/lab-5e-step-1-substep-4.png " ")
 
-    **NOTE:** Unlike the movie sales data, we now have a single row per customer and you can see that in the column **insufficient\_funds\_incidents** there are single numeric values determining the status of this column.
+    > **Note:** Unlike the movie sales data, we now have a single row per customer and you can see that in the column **insufficient\_funds\_incidents** there are single numeric values determining the status of this column.
 
 5. Run the following query to show that the column contains only four values:
 
@@ -100,7 +108,7 @@ To run this analysis we need to provide the following information:
 
 - Name of the output table - this gets created automatically by the procedure so just needs a name of table that doesn't exist
 
-**NOTE:**  The input table contains the column `CUSTOMER_ID` to make the data easier to validate once we get a final result. However, under normal circumstances this column would not be included as an input to the machine learning model, since every row is unique. Fortunately, the machine learning features in Autonomous Data Warehouse are smart enough to automatically ignore these types of columns and focus on the other more "interesting" columns.
+> **Note:**  The input table contains the column `CUSTOMER_ID` to make the data easier to validate once we get a final result. However, under normal circumstances this column would not be included as an input to the machine learning model, since every row is unique. Fortunately, the machine learning features in Autonomous Data Warehouse are smart enough to automatically ignore these types of columns and focus on the other more "interesting" columns.
 
 1. Now that we understand the required inputs, let's run the model:
 
@@ -163,6 +171,8 @@ What do the results tell us? An explanatory value of 0 implies there is no usefu
 The above results tell us that to understand why an insufficient funds event occurs, we need to examine the occurrence of late mortgage payments by a customer, their years residence, mortgage amount and education. Note that the analysis doesn't focus on specific attribute values. The analysis shows that by using the top four attributes we could get a better understanding of why an insufficient funds event occurs.
 
 Conversely, we can say that demographic attributes such as job\_type, marital\_status and renting or owning a property have little to no impact on whether a customer is likely to incur an insufficient funds event.
+
+You may now [proceed to the next lab](#next).
 
 ## Recap
 

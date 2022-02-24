@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Oracle MovieStream Platform Story",
+    "workshoptitle": "Action! MovieStream Analytics Produce the Best Picture with Oracle Cloud",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
@@ -61,22 +61,22 @@
             "description": "Managing Text Lists Using SQL",
             "filename": "../../managing-text-lists/managing-text-lists.md"
           },
+          {
+            "title": "Lab 6: Working with JSON Data",
+            "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+        },
         {
-            "title": "Lab 6: Use OML to Predict Customer Churn",
+            "title": "Lab 7: Use OML to Predict Customer Churn",
             "type": "freetier",
             "filename": "../../predict-churn/predict-churn.md"
         },
         {
-            "title": "Lab 7: Find Closest Pizza Shops with Spatial",
+            "title": "Lab 8: Find Closest Pizza Shops with Spatial",
             "filename": "../../apply-spatial/apply-spatial.md"
         },
         {
-            "title": "Lab 8: Use Graph Analytics for Product Recommendations",
+            "title": "Lab 9: Use Graph Analytics for Product Recommendations",
             "filename": "../../apply-graph/apply-graph.md"
-        },
-        {
-            "title": "Lab 9: Working with Semi-Structured Data",
-            "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
         },
         {
             "title": "Initializing Labs",

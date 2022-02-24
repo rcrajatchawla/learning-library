@@ -557,7 +557,7 @@ This Data Flow will load data from **multiple source files** containing Employee
     - Enter
 
     ```
-    <copy>CASE WHEN DAYOFYEAR(CURRENT_DATE)>=DAYOFYEAR(EXPRESSION_1.EXPRESSION_1.BIRTH_DATE) THEN TRUNC(YEAR(CURRENT_DATE)-YEAR(EXPRESSION_1.EXPRESSION_1.BIRTH_DATE)) ELSE TRUNC(YEAR(CURRENT_DATE)-YEAR(EXPRESSION_1.EXPRESSION_1.BIRTH_DATE)-1) END</copy>
+    <copy>CASE WHEN DAYOFYEAR(CURRENT_DATE)>=DAYOFYEAR(EXPRESSION_1.TRANSFORM_DATAYPES.BIRTH_DATE) THEN TRUNC(YEAR(CURRENT_DATE)-YEAR(EXPRESSION_1.TRANSFORM_DATAYPES.BIRTH_DATE)) ELSE TRUNC(YEAR(CURRENT_DATE)-YEAR(EXPRESSION_1.TRANSFORM_DATAYPES.BIRTH_DATE)-1) END</copy>
     ```
    in the **expression** box.
    This function will calculate the age of the employee, by doing a minus between the current date and his birth date. CASE WHEN function returns the value for which a condition is met.
@@ -605,7 +605,7 @@ This Data Flow will load data from **multiple source files** containing Employee
 
   ![](./images/data-tab-employee.png " ")
 
-26. Scroll to the right until you get to the attribute **EXPRESSION\_1.EMPLOYEES\_SOURCE\_FILES.Region**. Click on it and a **Data Profile** window will appear. You can observe that there is employee data from four regions: Northeast, West, South, Midwest. In this data flow you will split the employee data into two target tables based on the region: one target table for employees from **Northeast and South** region (table named `EMPLOYEES_NORTHEAST_SOUTH`) and one target table for employees from **West and Midwest** region (table named `EMPLOYEES_WEST_MIDWEST`).
+26. Scroll to the right until you get to the attribute **EMPLOYEE\_AGE\_AND\_PHONE.EMPLOYEES\_SOURCE\_FILES.Region**. Click on it and a **Data Profile** window will appear. You can observe that there is employee data from four regions: Northeast, West, South, Midwest. In this data flow you will split the employee data into two target tables based on the **region**: one target table for employees from **Northeast and South** region (table named `EMPLOYEES_NORTHEAST_SOUTH`) and one target table for employees from **West and Midwest** region (table named `EMPLOYEES_WEST_MIDWEST`).
 
   ![](./images/data-profile-region.png " ")
 
@@ -613,11 +613,11 @@ This Data Flow will load data from **multiple source files** containing Employee
 
   ![](./images/split-operator.png " ")
 
-28. In the **Properties** bar of the Split Operator, we will rename it to **SPLIT\_BY\_REGION** and leave the default **Match** option (**First matching condition** means that data that matches the first condition should be removed from further processing by other conditions).
+28. In the **Properties** bar of the Split Operator, we will leave the default **Identifier** (**SPLIT\_1**) and **Match** option (**First matching condition** means that data that matches the first condition should be removed from further processing by other conditions).
 
   ![](./images/split-region.png " ")
 
-29. Still in Properties bar of the Split Operator, click on **Add** in **Conditions section**.
+29. Still in Properties bar of the Split Operator, click on **Add Condition** in **Split Conditions section**.
 
   ![](./images/add-condition.png " ")
 
@@ -636,7 +636,7 @@ This Data Flow will load data from **multiple source files** containing Employee
 
   ![](./images/split-operator-properties.png " ")
 
-32. Still in Properties bar of the Split Operator, click on **Add** in **Conditions section** to add a new split condition.
+32. Still in Properties bar of the Split Operator, click on **Add Condition** in **Split Conditions section** to add a new split condition.
 
   ![](./images/add-new-split-condition.png " ")
 
@@ -709,14 +709,13 @@ This Data Flow will load data from **multiple source files** containing Employee
     - For **Staging Location**, select your **Object Storage bucket** (`DI-bucket`)
     - **Merge Key** will automatically get populated with the primary key name of the table, from the database.
 
-   **Make sure you also map all of the columns, same as in steps 35, 36 and 37 of this lab.**
+   **Make sure you also map all of the columns, same as in steps 38, 39 and 40 of this lab.**
 
   ![](./images/employees-northeast-and-south.png " ")
 
-43. The design of the Data Flow is now ready. Click on **Validate**. The result in the Global Validation window displays two warnings related to the UNMATCHED output port of the split operator, which is not connected to any target table.
-   *Note: However, since these are not errors which could cause the task to fail, and for the purposes of this workshop, we will ignore these warnings.*
+43. The design of the Data Flow is now ready. Click on **Validate**. The Validation panel lets you know if any warnings or errors were detected.  *Note: If any warnings or errors are found, select an issue and it'll take you to the operator that caused it, to investigate further. Warnings that might be displayed should not cause the task to fail.*
 
-   ![](./images/validate-df.png " ")
+  ![](./images/validate-df.png " ")
 
 44. Click on **Save and Close**.
 
@@ -751,7 +750,8 @@ This Data Flow will load data from **multiple source files** containing Employee
     - In the **Select a Data Flow** panel, select `Load Customers and Revenue Data`, and then click Select.
     ![](./images/select-df.png " ")
     - The Data Flow will be **validated** after the selection and the result should be displayed as **Successful**.
-    - Click **Save and Close**.
+    - Click **Create and Close**.
+
     ![](./images/integration-task-save.png " ")
 
 6. From the `DI_Workshop` project section **Tasks**, you will now create an Integration Task for your second Data Flow. Click **Create Task** and then select **Integration**.
@@ -762,8 +762,8 @@ This Data Flow will load data from **multiple source files** containing Employee
 
     - Change the **Name** to `Load Employees by Regions` and enter the optional **Description**. The value in the **Identifier** field is auto-generated based on the value you enter for Name.
     - In the Data Flow section, click Select. In the **Select a Data Flow** panel, select `Load Employees by Region`, and then click Select.
-    - The Data Flow will be **validated**. The warnings that you got when validating the Data Flow in Step 4 will be displayed. *Note: However, since these are not errors which could cause the task to fail, and for the purposes of this workshop, we will ignore these warnings.*
-    - Click **Save and Close**.
+    - The Data Flow will be **validated**.
+    - Click **Create and Close**.
 
     ![](./images/save-close-integration-task.png " ")
 
@@ -858,4 +858,4 @@ Any user interested in seeing the successful/ unsuccessful result of the Data In
 
 * **Author** - Theodora Cristea
 * **Contributors** -  Aditya Duvuri, Rohit Saha
-* **Last Updated By/Date** - Theodora Cristea, July 2021
+* **Last Updated By/Date** - Theodora Cristea, August 2021

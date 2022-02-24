@@ -50,35 +50,44 @@ At a high level, here are the process of completing a full cycle of using anomal
 
 Note that one project can have multiple data assets and multiple models.
 
-## Anomaly Detection Resource
+## Task 1: Set Up Policy
 
 In order for users to create and manage the resource used in Anomaly Detection service, the administrators of the tenancy need to add proper policy to grant permissions to users.
 
-Granting permissions to users can use one of 2 ways: at whole aggregated resource level, or individual resource level.
+### 1. Navigate to Policies
 
-### Method 1: Granting permissions at aggregated resource level
+Log into OCI Cloud Console. Using the Burger Menu on the top left corner, navigate to Identity & Security and click it, and then select Policies item under Identity.
+![](../images/policy-on-menu.png " ")
 
-* ai-service-anomaly-detection-family
+### 2. Create Policy
 
-Example of policy can be like:
+Click Create Policy button. **Note only tenancy administrators or user in administrator group have permissions to create new policies.**
+
+![](../images/policy-create-button.png " ")
+
+### 3. Create a new policy with the following statements:
+
+If you want to allow all the users in your tenancy to use anomaly detection service. Create a new policy with the below statement:
+
 ```
-Allow any-user to manage ai-service-anomaly-detection-family in tenancy
+<copy>allow any-user to manage ai-service-anomaly-detection-family in tenancy</copy>
 ```
 
-### Method 2: Granting permissions at individual resource level
+![](../images/policy-creating-process.png " ")
 
-* ai-service-anomaly-detection-project
-* ai-service-anomaly-detection-model
-* ai-service-anomaly-detection-data-asset
-* ai-service-anomaly-detection-private-endpoint
+If you want to limit access to a user group, you can create a new policy with the below statement:
 
-Example of policy can be like:
 ```
-Allow any-user to manage ai-service-anomaly-detection-project in tenancy
-Allow any-user to manage ai-service-anomaly-detection-model in tenancy
-Allow any-user to manage ai-service-anomaly-detection-data-asset in tenancy
-Allow any-user to manage ai-service-anomaly-detection-private-endpoint in tenancy
+<copy> allow group <group-name> to manage ai-service-anomaly-detection-family in tenancy</copy>
 ```
+
+**Note:** The anomaly detection service need data to build customized models, therefore, user also need to add policy to grant permissions to access data.
+For example, in this lab session, we will use Oracle object storage as data source, so the administrators also need to add the following policy:
+
+```
+<copy>allow any-user to manage object-family in tenancy</copy>
+```
+
 
 [Proceed to the next section](#next).
 
@@ -88,4 +97,4 @@ Allow any-user to manage ai-service-anomaly-detection-private-endpoint in tenanc
     * Haad Khan - Senior Data Scientist - Oracle AI Services
     * Marianne Liu - Senior Data Scientist - Oracle AI Services
 * **Last Updated By/Date**
-    * Jason Ding - Principal Data Scientist, July 2021
+    * Jason Ding - Principal Data Scientist, August 2021

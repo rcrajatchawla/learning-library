@@ -50,13 +50,17 @@ Learn how to
 1. Copy and paste the url in your browser for the zip archive, i.e.  
 
     ```
+    <copy>
     https://objectstorage.us-ashburn-1.oraclecloud.com/p/EmjceN7dh4exJAwe8llQzAOMi4Y4pe9deZbpOXDpcjmoXYQ98Xu7XVFinPudEQwM/n/c4u04/b/data-management-library-files/o/random-acct-txn-data.zip
+    </copy>
     ```
 
    Or use `wget` or `curl` to download the sample data to you computer.   
-   A sample `curl` request is:
+   A sample `curl` request that you can copy and paste is:
     ```
+    <copy>
     curl -G -o acct-txn-data.zip https://objectstorage.us-ashburn-1.oraclecloud.com/p/EmjceN7dh4exJAwe8llQzAOMi4Y4pe9deZbpOXDpcjmoXYQ98Xu7XVFinPudEQwM/n/c4u04/b/data-management-library-files/o/random-acct-txn-data.zip
+    </copy>
     ```
 
 2. **Unzip** the archive into a local directory such as ~/downloads.
@@ -80,9 +84,9 @@ Learn how to
     ![](./images/db-actions-dataload-choose-files.png " ")
 
 3. Verify that the correct files were selected and then click `Run` icon.
-![](./images/b-actions-dataload-click-run.png " ")
+![](./images/db-actions-dataload-click-run.png " ")
 
-4. Confirm that you wish the data laod job.
+4. Confirm that you wish the data load job.
 
    ![](./images/db-actions-dataload-confirm-run.png " ")
 
@@ -101,9 +105,10 @@ Learn how to
    
    ![](./images/db-actions-drag-drop-fixup-sql.png " ")  
 
-   The contents of `fixup.sql` are:
+   If, however, you prefer to copy-n-paste then the contents of `fixup.sql` are:
 
    ```
+   <copy>
    alter table bank_accounts add primary key (acct_id);
    
    alter table bank_txns add txn_id number;
@@ -117,6 +122,7 @@ Learn how to
    desc bank_txns;
    
    select * from USER_CONS_COLUMNS where table_name in ('BANK_ACCOUNTS', 'BANK_TXNS');
+   </copy>
    
    ```
 
@@ -138,7 +144,7 @@ Learn how to
    ![](./images/db-actions-sql-script-output.png " ")
   
 
-Please *proceed to the next lab* to create a graph from these tables.
+Please [proceed to the next lab](#next) to create a graph from these tables.
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management

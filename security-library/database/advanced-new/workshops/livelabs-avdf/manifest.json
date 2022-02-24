@@ -9,11 +9,6 @@
       "filename": "../../intro/intro-avdf.md"
     },
     {
-      "title": "Get Started",
-      "description": "Login to Oracle Cloud",
-      "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs-novnc.md"
-    },
-    {
       "title": "Lab 1: Environment Setup",
       "description": "Verify Setup of compute instance",
       "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/verify-compute/verify-compute-novnc.md"

@@ -28,11 +28,11 @@ Quick walk through on how you can trace microservice activity using Jaeger.
     <copy>services</copy>
     ```
 
-    ![](images/jaegerservice.png " ")
+    ![](images/ingress-nginx-loadbalancer-externalip.png " ")
 
 4. Open a new browser tab and enter the external IP URL:
 
-  `https://<EXTERNAL-IP>`
+  `https://<EXTERNAL-IP>/jaeger`
 
    Note that for convenience a self-signed certificate is used to secure this https address and so it is likely you will be prompted by the browser to allow access.
 

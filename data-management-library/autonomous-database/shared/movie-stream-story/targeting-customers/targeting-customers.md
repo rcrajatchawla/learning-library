@@ -2,17 +2,6 @@
 
 ## Introduction
 
-<style>
-    .unselectable {
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    color: black !important;
-    }
-</style>
-
 Patterns are everywhere in business but what is a pattern? They are usually defined as a repetitive series or sequence of specific events or actions and they occur everywhere in business. The ability to find, analyze and quantify individual or groups of patterns within a data set is now a key business requirement. It can help you gain a better understanding of your customers’ behavior and associated operational activities, seek out new opportunities to drive additional revenue streams and even help identify malicious activities that could lead to your business incurring significant costs.
 
 Autonomous Data Warehouse comes complete with native pattern matching capabilities. This brings the simplicity and efficiency of the most common data analysis language (SQL) to the process of identifying patterns within a data set. It offers significant gains in term of performance, maintainability and scalability compared to the legacy ways of solving pattern matching-like problems.
@@ -30,6 +19,14 @@ Estimated time: 15 minutes
 - Learn how to define frequency criteria for patterns
 
 - Learn how to define search criteria for patterns
+
+### Prerequisites
+- This lab requires completion of the previous labs in the Contents menu on the left.
+- You can complete the prerequisite labs in two ways:
+
+    a. Manually run through the labs.
+
+    b. Provision your Autonomous Database and then go to the **Initializing Labs** section in the contents menu on the left. Initialize Labs will create the MOVIESTREAM user plus the required database objects.
 
 ### Overview Of Business Problem
 
@@ -57,7 +54,7 @@ We can find the customers who watched at least 1 family genre movie during a qua
 To map this pattern within our query, we use the following to outline what we are looking for:
 ```
 PATTERN (family+)
- ```
+```
 
 This implies that we are searching for at least 1 occurrence of a pattern called family as we search through the data set. And then the pattern 'family' is defined as follows:
 
@@ -91,7 +88,7 @@ This means that the pattern 'family' looks for movies where the genre is set to 
     );</copy>
     ```
 
-**Note**: we have already seen concepts such as PARTITION BY and ORDER BY in earlier queries. These keywords enforce similar types of operations when used with pattern matching. In the above example, the data set (vw\_movie\_sales\_fact\_2020) is divided into individual partitions for each customer_id and the data within each partition is ordered by day and genre to help present the data to the pattern matching process in the most efficient way.
+    > **Note**: we have already seen concepts such as PARTITION BY and ORDER BY in earlier queries. These keywords enforce similar types of operations when used with pattern matching. In the above example, the data set (vw\_movie\_sales\_fact\_2020) is divided into individual partitions for each customer\_id and the data within each partition is ordered by day and genre to help present the data to the pattern matching process in the most efficient way.
 
 3. The result should be 495,450.
 
@@ -165,7 +162,7 @@ Now that we understand how our pattern matching query is working, we can extend 
     AND FIRST(family.quarter_name) = LAST(family.quarter_name)</code>
     ```
 
-**Note:** We are defining "family-related" genres as comedy and crime as you can see in the above definition. The above means we are now looking for rows with at least one comedy movie, a crime movie and at least one family movie within a given quarter. Essentially we are looking for a specific pattern of movie streaming.
+    > **Note:** We are defining "family-related" genres as comedy and crime as you can see in the above definition. The above means we are now looking for rows with at least one comedy movie, a crime movie and at least one family movie within a given quarter. Essentially we are looking for a specific pattern of movie streaming.
 
 2. If we insert the above into our first pattern matching query, we can then paste the following code into our SQL Worksheet:
 
@@ -284,7 +281,7 @@ The above examples have used a very simple business rule - each movie has a sing
     ```
     <copy>SELECT
     title,
-    genre
+    genres
     FROM movie</copy>
     ```
 
@@ -371,7 +368,7 @@ The above examples have used a very simple business rule - each movie has a sing
 
     ![Query result showing results of searching across multiple genres](images/lab-5d-task-6-step-5.png " ")
 
-
+You may now [proceed to the next lab](#next).
 
 ## Recap
 
@@ -386,8 +383,6 @@ Let's quickly recap what has been covered in this lab:
 - Calculating useful information from data inside your pattern
 
 - Sharing results with other data warehouse users
-
-Please *proceed to the next lab*.
 
 ## **Acknowledgements**
 

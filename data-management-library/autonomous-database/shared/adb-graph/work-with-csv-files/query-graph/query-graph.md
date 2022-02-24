@@ -403,7 +403,7 @@ Name it `Learn/BankGraph: Find Circular Payments`.
 	</copy>
 	```
 
-	![](images/56-compare-top-ten.png " ")
+	![](images/56-md-compare-top-ten.png " ")
 
 18. Then add a paragraph to show the top ten accounts by PageRank.  
  

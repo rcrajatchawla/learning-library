@@ -25,7 +25,7 @@ This lab assumes you have:
     - Lab: Environment Setup
     - Lab: Initialize Environment  
     - Lab: Essbase Features: Basic
-     
+
 
 ## Task 1: Manage an Application Using EAS Lite
 
@@ -33,9 +33,14 @@ Before you can connect to an application in EAS Lite, you must set it as an EAS 
 
 To manage an application using EAS Lite:
 
-1.	Log in to the Essbase web interface using the Essbase URL, i.e. http://ip:9000/essbase/jet.
+1.	Log in to the Essbase 21c web interface using the Essbase URL.
 
-   Note: Please replace ip with your instance's ip.
+    ```
+    <copy>
+    http://[Instance-Public-IP]:9000/essbase/jet
+    </copy>
+    ```
+    *Note:* Please replace *`[Instance-Public-IP]`* with your instance's public IP Address wherever referenced in this guide.
 
 2.	On the Applications tab click **Import** in the Essbase web interface and click **Catalog**.
    ![](./images/EAS_0.png " ")
@@ -62,16 +67,20 @@ To manage an application using EAS Lite:
 ## Task 2: Access the EAS Lite Web Console
 
 1.	Open a web browser and navigate to the URL of the EAS managed server. For example,
-   Copy http://ip:9100/easconsole
-
-   Note: Please replace ip with your instance's ip.
+      
+      ```
+      <copy>
+      http://[Instance-Public-IP]:9100/easconsole
+      </copy>
+      ```
+      Note: Please replace ip with your instance's ip.
 
 2.	Click **Launch**. If the EAS Lite console doesn't launch, you may need to configure your browser with a Java Web Start (javaws) plugin that can launch .jnlp files.
    ![](./images/EAS_4.png " ")
 
    Open the downloaded file: easconsole.jnlp.
 
-3. Once the following propmpt is displayed, click **Run**.
+1. Once the following propmpt is displayed, click **Run**.
    ![](./images/eas_run_prompt.png " ")
 
 

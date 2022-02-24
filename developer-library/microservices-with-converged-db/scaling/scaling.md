@@ -27,7 +27,7 @@ This lab assumes that you have already completed the previous labs.
 1. Start an external load balancer for the order service.
 
     ```
-    <copy>cd $GRABDISH_HOME/order-helidon; kubectl create -f ext-order-service.yaml -n msdataworkshop</copy>
+    <copy>cd $GRABDISH_HOME/order-helidon; kubectl create -f ext-order-ingress.yaml -n msdataworkshop</copy>
     ```
 
     Repeatedly view the ext-order LoadBalancer service.  Make note of the external IP address.
@@ -36,7 +36,7 @@ This lab assumes that you have already completed the previous labs.
     <copy>services</copy>
     ```
 
-    ![](images/ext-order-address.png " ")
+    ![](images/ingress-nginx-loadbalancer-externalip.png " ")
 
     Set the LB environment variable to the external IP address of the ext-order service. Replace 123.123.123.123 in the following command with the external IP address.
 

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab you will perform various queries on the In-Memory Column Store.
+In this lab, you will perform various queries on the In-Memory Column Store.
 
 Watch a preview video to get an explanation of querying the In-Memory Column Store.
 
@@ -12,7 +12,7 @@ Quick walk through on how to perform In-Memory queries.
 
 [](youtube:o7XD1TIcx5s)
 
-Estimated Lab Time: 15 minutes
+Estimated Time: 15 minutes
 
 ### Objectives
 
@@ -178,9 +178,9 @@ Now that you’ve gotten familiar with the IM column store let’s look at the b
 
 In this lab you had an opportunity to try out Oracle’s In-Memory performance claims with queries that run against a table with over 23 million rows (i.e. LINEORDER), which resides in both the IM column store and the buffer cache. From a very simple aggregation, to more complex queries with multiple columns and filter predicates, the IM column store was able to out perform the buffer cache queries. Remember both sets of queries are executing completely within memory, so that’s quite an impressive improvement.
 
-These significant performance improvements are possible because of Oracle’s unique in-memory columnar format that allows us to only scan the columns we need and to take full advantage of SIMD vector processiong. We also got a little help from our new in-memory storage indexes, which allow us to prune out unnecessary data. Remember that with the IM column store, every column has a storage index that is automatically maintained for you.
+These significant performance improvements are possible because of Oracle’s unique in-memory columnar format that allows us to only scan the columns we need and to take full advantage of SIMD vector processing. We also got a little help from our new in-memory storage indexes, which allow us to prune out unnecessary data. Remember that with the IM column store, every column has a storage index that is automatically maintained for you.
 
-You may now [proceed to the next lab](#next).
+You may now **proceed to the next lab**.
 
 ## Acknowledgements
 

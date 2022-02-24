@@ -14,7 +14,7 @@ This lab assumes you have:
 - An Oracle Free Tier or Paid Cloud account
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [essbase21c-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/yXWQRgypeikDCKtcsfXW2hT5Kfg8GIHrORTorvJVgGeKin5xWN5f1cWAKhVMFRxM/n/natdsecurity/b/stack/o/essbase21c-mkplc-freetier.zip)
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [essbase-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/XKuXweYVUK0oU2dbsUHIz4M4Sh8yjdizbtjSbVv99AgWrEmGEibM3v6sh35ejErK/n/natdsecurity/b/stack/o/essbase-mkplc-freetier.zip)
 
 2.  Save in your downloads folder.
 
@@ -26,8 +26,8 @@ This workshop requires a certain number of ports to be available, a requirement 
 | Port           |Description                            |
 | :------------- | :------------------------------------ |
 | 22             | SSH                                   |
-| 9000           | Essbase              |
-| 9100           | EAS Console              |
+| 9000           | Essbase                               |
+| 9100           | EAS Console                           |
 
 1.  Go to *Networking >> Virtual Cloud Networks*
 2.  Choose your network

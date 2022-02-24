@@ -51,7 +51,10 @@ Click the Data Asset menu on the middle left, and Click the Create Data Asset bu
 Then you can specify the compartment of Object storage that houses the data. Click Create Button.
 ![](../images/7_create_data_asset_form.png " ")
 
-After a few seconds, the data asset will be shown in the data asset main pane.
+After a few seconds, the data asset will be shown in the data asset main panel.
+
+For other types of data sources, such as Oracle Autonomous Transaction Processing (ATP) or InfluxDB, please refer [this documentation page](https://docs.oracle.com/en-us/iaas/anomaly/using/add-data-assets.htm#add-data-assets) for how to configure.
+
 
 ### 2: Use the Train Model button to create a new data asset (Optional)
 

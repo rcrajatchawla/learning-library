@@ -18,12 +18,12 @@ This Workshop explains how to send data from an on-premises or Marketplace Oracl
 
 There are 5 hands-on labs in this workshop. The last one is optional. You first need to set up your environment by provisioning a Virtual Cloud Network and Subnet, an Autonomous Transaction Processing database, and an Autonomous Data Warehouse. After reviewing the Prerequisites and Introduction, complete the labs in this order:
 
-Lab  –   Set up the environment
+Lab  –   Set Up the Environment
 
-Lab   –  Create GoldenGate Deployment resources
+Lab   –  Create GoldenGate Deployment Resources
 
-Lab   –  Create a trusted connection between Oracle GoldenGate and OCI GoldenGate
+Lab   –  Create a Trusted Connection Between Oracle GoldenGate and OCI GoldenGate
 
-Lab   –  Send the Oracle GoldenGate Trail file to OCI GoldenGate
+Lab   –  Send the Oracle GoldenGate Trail File to OCI GoldenGate
 
-Lab   –  (Optional) Connect to the Admin Client
+Lab   –  (Optional) Connect to the Admin Client to View Extract Statistics and Log Messages

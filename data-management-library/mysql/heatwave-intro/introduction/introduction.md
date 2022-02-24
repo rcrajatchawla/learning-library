@@ -1,4 +1,4 @@
-# Launch Your First MySQL Database Service With HeatWave System
+# Introduction
 
 ## About this Workshop
 
@@ -6,7 +6,7 @@ MySQL Database Service with HeatWave for real-time analytics delivers the worldâ
 
 In this workshop you will learn how to create and use MySQL Database Service with HeatWave on OCI, load and update data into the HeatWave cluster, run queries, and use MySQL Shell and Workbench to connect with HeatWave.
 
-Estimated Lab Time: 4 hours
+Estimated Lab Time: 90 minutes
 
 ### About Product/Technology
 Oracle MySQL Database Service, with HeatWave, is the only service that enables database admins and app developers to run OLTP and OLAP workloads directly from their MySQL database, eliminating the need for complex, time-consuming, and expensive data movement and integration with a separate analytics database. 
@@ -43,16 +43,15 @@ on value added tasks that are core to your business.
 ### Objectives
 
 In this lab, you will be guided through the following steps:
-* Set the correct user Policies and create an isolated Virtual Cloud Network 
+* Create a Virtual Cloud Network 
 * Create a MySQL DB System for HeatWave 
 * Configure a client Linux Virtual Machine 
 * Connect to and use MySQL 
 * Create airpot Database and Import Data
 * Add a HeatWave Cluster to MDS
-* Loading airport Data into HeatWave
-* Runn Queries in HeatWave
+* Load airport Data into HeatWave
+* Run Queries in HeatWave
 * Connect to HeatWave using Workbench
-* Delete MySQL DB With HeatWave System
 
 ### Prerequisites
 
@@ -61,11 +60,6 @@ In this lab, you will be guided through the following steps:
 
 
 ## Acknowledgements
-* **Author** -  Mandy Pang, MySQL Principal Product Manager, Research & Advanced Development 
-* **Contributors** -  Priscila Galvao, MySQL Solution Engineering
-* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, May 2021
-
-## Need Help?
-Please submit feedback or ask for help using our [MySQL  Support Forum](https://community.oracle.com/tech/developers/categories/MySQL). Please click the **Log In** button and login using your Oracle Account. Click the **Ask A Question** button to the left to start a *New Discussion* or *Ask a Question*.  Please include your workshop name and lab name.  You can also include screenshots and attach files.  Engage directly with the author of the workshop.
-
-If you do not have an Oracle Account, click [here](https://profile.oracle.com/myprofile/account/create-account.jspx) to create one.
+* **Author** - Perside Foster, MySQL Solution Engineering 
+* **Contributors** - Mandy Pang, MySQL Principal Product Manager,  Priscila Galvao, MySQL Solution Engineering, Nick Mader, MySQL Global Channel Enablement & Strategy Manager
+* **Last Updated By/Date** - Perside Foster, MySQL Solution Engineering, September 2021

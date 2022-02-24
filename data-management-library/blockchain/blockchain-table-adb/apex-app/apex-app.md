@@ -276,6 +276,6 @@ Now, we have the blockchain module, the handlers, and the templates defined. Let
 
 ## Acknowledgements
 
-* **Author** - Salim Hlayel, Mark Rakhmilevich, Anoosha Pilli
-* **Contributors** - Anoosha Pilli, Product Manager, Oracle Database
+* **Author** - Mark Rakhmilevich, Anoosha Pilli
+* **Contributors** - Anoosha Pilli, Salim Hlayel, Product Manager, Oracle Database
 * **Last Updated By/Date** - Brianna Ambler, August 2021

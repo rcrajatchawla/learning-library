@@ -21,15 +21,6 @@ In this workshop, you will:
 * Create a trusted connection between Oracle GoldenGate and OCI GoldenGate
 * Create and run a distribution path on Oracle GoldenGate
 
-### Lab Breakdown
-
-* Lab 1: Set up your environment
-* Lab 2: Create OCI GoldenGate resources
-* Lab 3: Connect Oracle GoldenGate to Autononous Transaction Processing
-* Lab 4: Create a trusted connection between Oracle GoldenGate and OCI GoldenGate
-* Lab 5: Send the Oracle GoldenGate Trail File to OCI GoldenGate
-* Lab 6: (Optional) Connect to the Admin Client
-
 ## Learn More
 
 * [Overview of Oracle Cloud Infrastructure GoldenGate](https://docs.oracle.com/cloud/paas/goldengate-service/using/overview-goldengate.html)
@@ -39,4 +30,4 @@ In this workshop, you will:
 ## Acknowledgements
 * **Author** - Jenny Chan, Consulting User Assistance Developer, Database User Assistance
 * **Contributors** -  Werner He and Julien Testut, Database Product Management
-* **Last Updated By/Date** - July 2021
+* **Last Updated By/Date** - Jenny Chan, September 2021

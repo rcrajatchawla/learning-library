@@ -37,7 +37,7 @@ You have been assigned your own OCI compartment for running this workshop.  The 
 
 Cloud Shell is a small virtual machine running a "bash" shell which you access through the OCI Console. Cloud Shell comes with a pre-authenticated command line interface which is set to the OCI Console tenancy region. It also provides up-to-date tools and utilities.
 
-Click the Cloud Shell icon in the top-right corner of the Console.
+1. Click the Cloud Shell icon in the top-right corner of the Console.
 
   ![](images/open-cloud-shell.png " ")
 
@@ -47,7 +47,7 @@ Click the Cloud Shell icon in the top-right corner of the Console.
 1. To work with the application code, you need to make a clone from the GitHub repository using the following command.  
 
     ```
-    <copy>git clone -b 21.6.1 --single-branch https://github.com/oracle/microservices-datadriven.git
+    <copy>git clone -b 21.9.2 --single-branch https://github.com/oracle/microservices-datadriven.git
     </copy>
     ```
 

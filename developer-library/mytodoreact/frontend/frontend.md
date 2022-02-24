@@ -1,22 +1,22 @@
-# Frontend (ReactJS)
+# Deploy the Application Frontend (React JS)
 
 ## Introduction
 
-In this lab you will deploy a pre-built ReactJS application locally then build it for production an host it on the Oracle Cloud Infrastucture.
+In this tutorial you will deploy a pre-built ReactJS application locally then build it for production an host it on the Oracle Cloud Infrastructure.
 
-Estimated Lab Time: 15-minutes
+Estimated time: 15-minutes
 
-### Understanding the ReactJS application
+### Understand the ReactJS Application
 
-The application is simple; it uses Functional Components with State Hooks for managing states. There is a main component called "App" which renders another component called "NewItem" and two tables of todo items: the active ones and the already done ones. The "NewItem" component displays the text field to add a new item.
+The application is simple; it uses "functional components" with "state hooks" for managing states. There is a main component called "App", which renders another component called "NewItem" and two tables of todo items: the active ones and the completed ones. The "NewItem" component displays the text field for adding a new item.
 
-The App component includes the "items" state ([]) which contains the list of todo items. When setItems is called with a new array of items the component will re-render.
+The App component includes the items state ([]) which contains the list of todo items. When setItems is called with a new array of items, the component will re-render.
 
 The App component also maintains the following states:
 
-- "isLoading" is true when waiting for the backend to return the list of items.We use this state to display a spinning wheel while loading.
+- "isLoading" is true when waiting for the backend to return the list of items. We use this state to display a spinning wheel while loading.
 
-- "isInserting" is true when waiting for the backend to process a new insert item. The "Add" button will display a spinning wheel during this time.
+- "isInserting" is true when waiting for the backend to process a newly inserted item. The **Add** button will display a spinning wheel during this time.
 
 - "error" stores the error messages received during the API calls.
 
@@ -24,167 +24,166 @@ The index.css file contains all the styles for the application.
 
 ### Objectives
 
-In this lab, you will:
+In this tutorial, you will:
 - Clone the workshop git repository on your laptop
 - Set the API Gateway endpoint
-- Run the ReactJS frontend code in Dev Mode then Build for Production
-- Host the production build on the Oracle Cloud's object storage
+- Run the ReactJS frontend code in development mode and build for production
+- Host the production build on the OCI Object Storage
 
 ### Prerequisites
 
-1. This lab requires the completion of lab 1 and 2
+1. This tutorial requires the completion of **Setup Development Environment** and **Deploy the Backend   Docker Image to Kubernetes**
 
-2. You will be using the npm command, make sure it is installed
+2. Make sure the `npm` command is installed.
 
     ```
     <copy>npm --version</copy>
     ```
+3. if `npm` is not installed, install `Node` for your laptop, using `https://bit.ly/3evGlEo`.
 
-    if not please install Node for your laptop, using the following
-    link: `https://bit.ly/3evGlEo`.
+4. Make sure `Go lang` is installed.
 
-3. The lab requires also Go lang.
-
-    "go version" -> `go version go1.15.2 darwin/amd64`
+    `go version` shows `go version go1.15.2 darwin/amd64`
 
     ```
     <copy>go version</copy>
     ```
-    If not installed, please install Go (see https://golang.org/doc/)
+5. If `Go lang` is not installed, see https://golang.org/doc/
 
 ## Task 1: Configure API.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-1. clone again the git repository to a directory on your laptop (we only need the front end in this lab)
+1. Clone the git repository to a directory on your laptop; we only need the front end in this tutorial:
 
-	```
+	```bash
 	<copy>git clone https://github.com/oracle/oci-react-samples.git</copy>
 	```
 
-2. cd frontend
+2. Navigate to the `frontend` directory
+     ```bash
+     <copy>cd frontend</copy>
+    ```
+3. Run the following `npm` commands to install the required packages:
 
-3. Run the following npm commands to install the required packages
-
-	```
+	```bash
 	<copy>npm install --save typescript</copy>
 	```
 	
-	```
+	```bash
 	<copy>npm install</copy>
 	```
 	
-	- In case of errors, try the following command
+4. In case of errors, try the following command:
 	
 		```
 		<copy>npm audit fix --force</copy>
 		```
 	
-	- Ideally, npm -version should return > 6.14.x AND Node version > 14.16.x
+	>**Note**: ideally, the `npm -version` should be higher than  `6.14.x`  and `node version` higher than 14.16.x 
 	
-		If npm version < 6.14.x then install the latest Node using
+5. If `npm` version is inferior to 6.14.x then install the latest `node` using
 		https://bit.ly/3evGlEo
 
-4. Update API_LIST in API.js
-
-  	- Make sure to be in frontend/src directory
-		```
+6. Update API_LIST in API.js:
+6.1. Navigate to the `frontend/src` directory
+		```bash
 		<copy>cd frontend/src</copy>
 		```
-	- In the Cloud console, navigate to **Developer Services > API Management**
-	- Click on your Gateway and go to Deployment
-	- Copy the Endpoint
-	- Paste the endpoint as the value of API_LIST and append "/todolist"
+6.2. In the Oracle Cloud Console, navigate to **Developer Services** and select **API Management**
+6.3. Click your gateway and go to **Deployment**.
+6.4. Copy the endpoint.
+6.5. Paste the endpoint as the value of API_LIST and append **/todolist**.
 
-		Example  
-		const API_LIST = 'https://xxxxxxxxxx.apigateway.eu-frankfurt-1.oci.customer-oci.com/todolist';
+		For example, const API_LIST = 'https://xxxxxxxxxx.apigateway.eu-frankfurt-1.oci.customer-oci.com/todolist';
 
-  	- Save the modified API.js file
+6.6. Save the modified API.js file.
 
 ## Task 2: Run in Dev Mode then Build for Production
 
-1. In the project directory, run the app in the development mode <br />
+1. In the project directory, run the app in the development mode <br />.
 
-	```
+	```bash
 	<copy>npm start</copy>
 	```
 
 2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-3. The page will reload if you make edits.<br />
-   You will also see any lint errors in the console.
+> **Note**
+    - The page will reload if you make edits.<br />
+    - You will also see any lint errors in the console.
 
-4. Cancel the developer mode execution and build the app for production to the `build` folder.<br />
+3. Cancel the developer mode execution and build the app for production into the `build` folder.<br />
 
-	- Issue "Ctrl-c" to cancel the developer mode executions
+	3.1. Press **Ctrl-c** to cancel the developer mode executions.
 
-	- Execute npm run build
-		```
+	3.2. Execute `npm run build`.
+
+		```bash
 		<copy>npm run build</copy>
 		```
-	It correctly bundles React in production mode (into the build folder) and optimizes the build for the best performance.
+	 `npm` correctly bundles React in production mode (in the build folder) and optimizes the build for best performance.
 
-    ![](images/Run-build.png " ")
+    	![run build](images/Run-build.png " ")
 
-	The build is minified and the filenames include the hashes.<br />
+	The build is minified and the file name include the hashes.<br />
 	Your app is ready to be deployed!
 
 	See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Task 3: Hosting on the Oracle Cloud's object storage
+## Task 3: Host on the Oracle Cloud Infrastructure Object Storage
 
-1. Open up the hamburger menu in the top-left corner of the Console and select
-**Object Storage > Object Storage**.
+1. Open up the navigation menu in the top-left corner of the Oracle Cloud Console and select
+**Storage** then select **Object Storage**.
 
-    - Create the 'mtdrworkshop' bucket
+2. Create the **mtdrworkshop** bucket in your root compartment.
 
-2. Install the Staci utility for copying directories to OCI object storage
-   bucket with folder hierarchies
+3. Install the Staci utility for copying directories to the Oracle Cloud Infrastructure (OCI) object storage
+   bucket while preserving folder hierarchies.
 
-	- git clone https://github.com/maxjahn/staci.git
+	3.1. Execute `git clone https://github.com/maxjahn/staci.git`.
 
-		```
+		```bash
 		<copy>git clone https://github.com/maxjahn/staci.git</copy>
 		```
 
-	- cd staci
+	3.2. Navigate to the **staci** directory
 
-		```
+		```bash
 		<copy>cd staci</copy>
 		```
 
-	- go get -d
+	3.3. Execute `go get -d`.
 
-		```
+		```bash
 		<copy>go get -d</copy>
 		```
 
-	- go build
+	3.4. Execute `go build`.
 
-		```
+		```bash
 		<copy>go build</copy>
 		```
 
-3. Upload a static build into the bucket, using the staci binary
+4. Upload a static build into the bucket, using the staci binary.
 
-	```
+	```bash
 	<copy>./staci/staci -source build -target mtdrworkshop</copy>
 	```
 
-	- The application is visible in the 'mtdrworkshop' bucket of your tenancy
+	- The application is visible in the 'mtdrworkshop' bucket of your tenancy.
 
-	- Click on the index.html object and copy the URL of the index object
+5. Click the index.html object and copy its URL.
 
-  	![](images/bucket-index.png " ")
+    ![bucket index](images/bucket-index.png " ")
 
-	- You may now run the application from Object store, using the URL of the index that you've copied above.
+You may now run the application from OCI Object Store, using the URL of the index that you've copied above.
 
-  	![](images/MyToDo.png " ")
+    ![MyToDo](images/MyToDo.png " ")
 
-Congratulations for completing the entire lab!!
 
 ## Acknowledgements
 
-* **Author** -  - Kuassi Mensah, Dir. Product Management, Java Database Access
+* **Author** -  Kuassi Mensah, Dir. Product Management, Java Database Access
 * **Contributors** - Jean de Lavarene, Sr. Director of Development, JDBC/UCP
 * **Last Updated By/Date** - Anoosha Pilli, Database Product Management,  April 2021

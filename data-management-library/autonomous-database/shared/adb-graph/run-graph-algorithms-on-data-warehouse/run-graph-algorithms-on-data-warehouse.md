@@ -204,7 +204,7 @@ The example notebook contains two paragraphs illustrating how you can use graph 
 
     ![](./images/notebooks-product-recommendation.png " ")
 
-Congratulations! You successfully completed the lab. 
+**Congratulations!** You successfully completed the lab. 
 
 ## Acknowledgements
 * **Author** - Korbi Schmid, Product Development

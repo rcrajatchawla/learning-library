@@ -14,7 +14,7 @@ This lab assumes you have:
 - An Oracle Free Tier or Paid Cloud account
 
 ## Task 1: Download Oracle Resource Manager (ORM) stack zip file
-1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [ods-mkplc-freetier.zip]()
+1.  Click on the link below to download the Resource Manager zip file you need to build your environment: [ods-mkplc-freetier.zip](https://objectstorage.us-ashburn-1.oraclecloud.com/p/wgFpz86OtCTyuXusV82FGcCbxSFOR_S1vfy_A2cYPx4Q_UZqVQXK5pXTq6o3GFap/n/natdsecurity/b/stack/o/ods-mkplc-freetier.zip)
 
 2.  Save in your downloads folder.
 
@@ -26,6 +26,7 @@ This workshop requires a certain number of ports to be available, a requirement 
 | Port           |Description                            |
 | :------------- | :------------------------------------ |
 | 22             | SSH                                   |
+| 3000           | eshop application                     |
 | 6080           | noVNC Remote Desktop                  |
 
 1.  Go to *Networking >> Virtual Cloud Networks*

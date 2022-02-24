@@ -235,7 +235,7 @@ Some values need to be unique, so how do we enforce this?
 
 	Copy and paste the following query in the worksheet and click **Run Query**.
 
-	The result now shows two documents with id 100. Let's delete the last inserted document by clicking on the trash bin button.
+	The result now shows two documents with id 100.
 
 	```
 	<copy>
@@ -244,6 +244,8 @@ Some values need to be unique, so how do we enforce this?
 	```
 
 	![](./images/id100-2.png)
+
+	Let's delete the {id:100, fruit:banana} last inserted document by clicking on the trash bin button.
 
 	![](./images/delete_document.png)
 

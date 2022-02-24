@@ -57,7 +57,7 @@ Refer to *Lab Environment Setup* for the detailed instructions relevant to your 
     ```
 
 ## Task 1: Login and Create PDB
-In the following labs, instead of SQL\*Plus you will use Oracle SQL Developer Command Line (SQLcl).  Oracle **SQLcl** is the modern, command-line interface to the database.  **SQLcl** has many key features that add to the value of the utility, including command history, in-line editing, auto-complete using the <TAB> key and more.  You can learn more about **SQLcl** [here](https://www.oracle.com/database/technologies/appdev/sqlcl.html).
+In the following labs, instead of SQL\*Plus you will use Oracle SQL Developer Command Line (SQLcl).  Oracle **SQLcl** is the modern, command-line interface to the database.  **SQLcl** has many key features that add to the value of the utility, including command history, in-line editing, auto-complete using the TAB key and more.  You can learn more about **SQLcl** [here](https://www.oracle.com/database/technologies/appdev/sqlcl.html).
 
 In this first task, you will create and explore a new pluggable database **PDB2** in the container database **CDB1**
 
@@ -1113,7 +1113,9 @@ The tasks you will accomplish in this step are:
 
     ![](./images/task10.3-checkcdb1.png " ")
 
-4.  Check the other terminal window where the load program is running.  After a timeout, the load program will resume on its own.  If you don't want to wait, enter CTRL-C to break out of the connection timeout and the load program should continue.  Note that the output now shows it is connected to the database in container **CDB2**.    
+4.  Check the other terminal window where the load program is running.  After a timeout, the load program will resume on its own.  If you don't want to wait, enter CTRL-C to break out of the connection timeout and the load program should continue.  Note that the output now shows it is connected to the database in container **CDB2**.  In real-world scenarios, Oracle customers may be able to leverage **Application Continuity**.  Oracle **Application Continuity** masks outages from end users and applications by recovering the in-flight work for impacted database sessions following outages.  You can learn more about **Application Continuity** [here](https://www.oracle.com/database/technologies/high-availability/app-continuity.html).  
+
+
 
     The load program isn't needed anymore, so CTRL-C out of that program and exit from the second terminal window.
 

@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Sending Data from Oracle GoldenGate to Oracle Cloud Infrastructure GoldenGate",
+    "workshoptitle": "Send Data from Oracle GoldenGate to Oracle Cloud Infrastructure GoldenGate",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
@@ -7,7 +7,7 @@
             "filename": "../../introduction/introduction-gb.md"
         },
         {
-            "title": "Lab 1: Create OCI GoldenGate resources",
+            "title": "Lab 1: Create OCI GoldenGate Resources",
             "description": "Create your OCI GoldenGate deployment and database registration",
             "filename": "../../create/create.md"
         },
@@ -17,7 +17,7 @@
             "filename": "../../oggmp-atp/oggmp-atp.md"
         },
         {
-            "title": "Lab 3: Create a Trusted Connection",
+            "title": "Lab 3: Create a Trusted Connection Between Oracle GoldenGate and OCI GoldenGate",
             "description": "Use a self-signed certificate to create a trusted connection",
             "filename": "../../connection/connection-gb.md"
         },
@@ -27,7 +27,7 @@
             "filename": "../../extract/extract.md"
         },
         {
-            "title": "Lab 5: (Optional) Connect to the Admin Client",
+            "title": "Lab 5: (Optional) Use the Admin Client View Extract Statistics and Log Messages",
             "description": "Connect to the Marketplace Oracle GoldenGate Admin Client",
             "filename": "../../admin-client/admin-client.md"
         },

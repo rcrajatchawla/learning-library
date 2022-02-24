@@ -18,14 +18,15 @@ from oci.ai_anomaly_detection.models.model_training_details import ModelTraining
 from oci.ai_anomaly_detection.models.data_item import DataItem
 from oci.ai_anomaly_detection.models.inline_detect_anomalies_request import InlineDetectAnomaliesRequest
 
-# change the following constants accordingly 
-## If using the instance in data science platform, please refer this page https://dzone.com/articles/quick-and-easy-configuration-of-oracle-data-scienc to setup the content of config file
-CONFIG_FILENAME = "/Users/home/.oci/config"
-SERVICE_ENDPOINT="https://anomalydetection.aiservice.us-phoenix-1.oci.oraclecloud.com"
-NAMESPACE = "id5zdxxxxa"
-BUCKET_NAME = "my-bucket"
+# change the following constants accordingly
+# ## If using the instance in data science platform, please refer this page https://dzone.com/articles/quick-and-easy-configuration-of-oracle-data-scienc to setup the content of config file
+CONFIG_FILENAME = "/home/<USERNAME>/.oci/config" # TODO: Update USERNAME
+SERVICE_ENDPOINT="https://anomalydetection.aiservice.us-ashburn-1.oci.oraclecloud.com" # Need to Update propery if different
+NAMESPACE = "idehhejtnbtc" # Need to Update propery if different
+BUCKET_NAME = "anomaly-detection-bucket" # Need to Update propery if different
+training_file_name="demo-training-data.csv" # Need to Update propery if different
 
-compartment_id = "ocid1.compartment.oc1..<Compartment ID>" #Compartment of the project
+compartment_id = "ocid1.tenancy.oc1..aaaaaaaasuvbdyacvuwg7p5zdccy564al2bnlizwdabjoebpefmvksqve3na" #Compartment of the project, Need to Update propery if different
 config = from_file(CONFIG_FILENAME)
 
 ad_client = AnomalyDetectionClient(
@@ -68,7 +69,7 @@ dDetails = DataSourceDetails(data_source_type="ORACLE_OBJECT_STORAGE")
 dObjDeatils = DataSourceDetailsObjectStorage(
     namespace=NAMESPACE,
     bucket_name=BUCKET_NAME,
-    object_name="training_ata.json",
+    object_name=training_file_name,
 )
 
 da_details = CreateDataAssetDetails(
@@ -139,38 +140,16 @@ time.sleep(30)
 
 # DETECT
 print("-*-*-*-DETECT-*-*-*-")
-signalNames = [
-    "sensor1",
-    "sensor2",
-    "sensor3",
-    "sensor4",
-    "sensor5",
-    "sensor6",
-    "sensor7",
-    "sensor8",
-    "sensor9",
-    "sensor10",
-    "sensor11",
-]
-timestamp = datetime.strptime("2020-07-13T20:44:46Z", "%Y-%m-%dT%H:%M:%SZ")
-values = [
-    1.0,
-    0.4713,
-    1.0,
-    0.5479,
-    1.291,
-    0.8059,
-    1.393,
-    0.0293,
-    0.1541,
-    0.2611,
-    0.4098,
-]
-dItem = DataItem(timestamp=timestamp, values=values)
-inlineData = [dItem] #multiple items can be added here
-inline = InlineDetectAnomaliesRequest(
-    model_id=model_id, request_type="INLINE", signal_names=signalNames, data=inlineData
-)
+signalNames = ["temperature_1", "temperature_2", "temperature_3", "temperature_4", "temperature_5", "pressure_1", "pressure_2", "pressure_3", "pressure_4", "pressure_5"]
+
+payloadData = []
+for i in range(10):
+    timestamp = datetime.strptime(f"2020-07-13T20:4{i}:46Z", "%Y-%m-%dT%H:%M:%SZ")
+    values = [ 0.3*i, 0.04713*(i-2)**2, 1.0, 0.5479, 1.291, 0.8059, 1.393, 0.0293, 0.1541, 0.2611]
+    dItem = DataItem(timestamp=timestamp, values=values)
+    payloadData.append(dItem)
+
+inline = InlineDetectAnomaliesRequest( model_id=model_id, request_type="INLINE", signal_names=signalNames, data=payloadData)
 
 detect_res = ad_client.detect_anomalies(detect_anomalies_details=inline)
 print("----DETECTING----")

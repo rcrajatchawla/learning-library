@@ -43,7 +43,7 @@ A compartment is a collection of cloud assets, like compute instances, load bala
 1. Log in to the Oracle Cloud Interface.
 2. Once you are logged in, you are taken to the cloud services dashboard where you can see all the services available to you. Click the navigation menu in the upper left to show top level navigation choices.
 
-     **Note:** You can also directly access your Autonomous Data Warehouse service in the __Quick Actions__ section of the dashboard.
+     > **Note:** You can also directly access your Autonomous Data Warehouse service in the __Quick Actions__ section of the dashboard.
 
     ![Oracle home page.](./images/navigation.png " ")
 

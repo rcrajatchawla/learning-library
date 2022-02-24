@@ -142,7 +142,7 @@ Learn how to
    Once the graph has been created and loaded into memory, you can query and visualize it in a notebook.
 
 
-Please *proceed to the next lab* to do so.
+Please [proceed to the next lab](#next) to do so.
 
 ## Acknowledgements
 * **Author** - Jayant Sharma, Product Management

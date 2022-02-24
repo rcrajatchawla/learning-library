@@ -6,9 +6,9 @@ This lab takes you through the steps needed to load and link data from the Movie
 
 You can load data into your Autonomous Database (Autonomous Data Warehouse [ADW] or Autonomous Transaction Processing [ATP]) using Oracle Database tools, as well as Oracle and 3rd party data integration tools. You can load data:
 
-+ from files in your local device,
-+ from tables in remote databases, or
-+ from files stored in cloud-based object storage (OCI Object Storage, Amazon S3, Microsoft Azure Blob Storage, Google Cloud Storage)
+- from files in your local device,
+- from tables in remote databases, or
+- from files stored in cloud-based object storage (OCI Object Storage, Amazon S3, Microsoft Azure Blob Storage, Google Cloud Storage)
 
 You can also leave data in place in cloud-based object storage, and link to it from your Autonomous Database.
 
@@ -22,21 +22,22 @@ In this lab, we will learn more about the Autonomous Database's built-in Data Lo
 
 We will also learn how to exercise features of the DBMS\_CLOUD package to link and load data into the Autonomous Database using SQL scripts. For more information about DBMS_CLOUD, see its [documentation](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/dbms-cloud-package.html).
 
-
 ### Objectives
 
-
-+ Learn how to define Object Storage credentials for your Autonomous Database
-+ Learn how to load data from Object Storage using Data Tools
-+ Learn how to load data from Object Storage using the DBMS\_CLOUD APIs executed from SQL
-+ Learn how to enforce data integrity in newly loaded tables
-
+- Learn how to define Object Storage credentials for your Autonomous Database
+- Learn how to load data from Object Storage using Data Tools
+- Learn how to load data from Object Storage using the DBMS\_CLOUD APIs executed from SQL
+- Learn how to enforce data integrity in newly loaded tables
 
 ### Prerequisites
 
-+ This lab requires you to have access to an Autonomous Database instance (either ADW or ATP).
+- This lab requires you to have access to an Autonomous Database instance (either ADW or ATP).
+- This lab requires completion of Lab 1, **Provisioning an ADB Instance**, and Lab 3, **Creating a Database User**, in the Contents menu on the left.
+- You can complete the prerequisite labs in two ways:
 
-+ The MOVIESTREAM user must have been set up. If the user is not set up, please complete Lab 3 in this series (Create a Database User) before proceeding.
+    a. Manually run through the labs.
+
+    b. Provision your Autonomous Database and then go to the **Initializing Labs** section in the contents menu on the left. Initialize Labs will create the MOVIESTREAM user plus the required database objects.
 
 ## Task 1: Configure the Object Storage Connections
 
@@ -62,7 +63,7 @@ In this step, you will set up access to the two buckets on Oracle Object Store t
 
     In the **Name** field, enter 'MovieStreamLanding'
 
-    **Note:** Take care not to use spaces in the name.
+    > **Note:** Take care not to use spaces in the name.
 
     Leave the Cloud Store selected as **Oracle**.
 
@@ -70,7 +71,7 @@ In this step, you will set up access to the two buckets on Oracle Object Store t
 
     ```
     <copy>
-    https://objectstorage.us-ashburn-1.oraclecloud.com/n/adwc4pm/b/moviestream_landing/o
+    https://objectstorage.us-ashburn-1.oraclecloud.com/n/c4u04/b/moviestream_landing/o
     </copy>
     ```
 
@@ -86,14 +87,14 @@ In this step, you will set up access to the two buckets on Oracle Object Store t
 
 - In the **Name** field, enter 'MovieStreamGold'
 
-    **Note:** Take care not to use spaces in the name.
+    > **Note:** Take care not to use spaces in the name.
 
 - Leave the Cloud Store selected as **Oracle**
 - Copy and paste the following URI into the URI + Bucket field:
 
     ```
     <copy>
-    https://objectstorage.us-ashburn-1.oraclecloud.com/n/adwc4pm/b/moviestream_gold/o
+    https://objectstorage.us-ashburn-1.oraclecloud.com/n/c4u04/b/moviestream_gold/o
     </copy>
     ```
 
@@ -254,7 +255,7 @@ In this step, we will use some of the additional features of the DBMS\_CLOUD API
 
     ```
     <copy>
-    define uri_gold = 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/adwc4pm/b/moviestream_gold/o'
+    define uri_gold = 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/c4u04/b/moviestream_gold/o'
     define parquet_format = '{"type":"parquet",  "schema": "all"}'
 
     begin
@@ -312,7 +313,7 @@ In this step, we will use some of the additional features of the DBMS\_CLOUD API
 
     ```
     <copy>
-    define uri_gold = 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/adwc4pm/b/moviestream_gold/o'
+    define uri_gold = 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/c4u04/b/moviestream_gold/o'
     define json_format = '{"skipheaders":"0", "delimiter":"\n", "ignoreblanklines":"true"}'
     begin
         dbms_cloud.create_external_table(
@@ -462,7 +463,7 @@ We will also add constraints on the **movie** table to ensure that all the colum
     BEGIN
     DBMS_CLOUD.COPY_DATA (
     table_name => 'pizza_location',
-    file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/adwc4pm/b/moviestream_landing/o/pizza_location/pizza_location.csv',
+    file_uri_list => 'https://objectstorage.us-ashburn-1.oraclecloud.com/n/c4u04/b/moviestream_landing/o/pizza_location/pizza_location.csv',
     format => '&csv_format'
     );
     END;
@@ -486,7 +487,7 @@ We will also add constraints on the **movie** table to ensure that all the colum
 
 This completes the Data Load lab. We now have a full set of structured tables loaded into the Autonomous Database from the MovieStream Data Lake, with suitable constraints set up on the tables to avoid errors in attempting to load duplicate rows or invalid data. We will be working with these tables in later labs.
 
-Please *proceed to the next lab*.
+You may now [proceed to the next lab](#next).
 
 ## Acknowledgements
 

@@ -10,7 +10,7 @@ In most real-world scenarios, queries against your data warehouse would normally
 
 ### Prerequisites
 
-- You will need to have completed the previous labs in this workshop
+- You will need to have completed the previous labs in this workshop, shown in the Contents menu on the left.
 
 Before starting to run the code in this workshop, we need to manage the resources we are going to use to query our sales data. You will notice that when you open SQL Worksheet, it automatically defaults to using the LOW consumer group - this is shown in the top right section of your worksheet.
 
@@ -29,7 +29,7 @@ Change the consumer group by simply clicking the downward pointing arrow next to
   ![Select the HIGH consumer group from the pulldown menu.](images/3054194709.png " ")    
 
 ### Get Started!
-This lab is very comprehensive - consisting of many different types of analytic queries. Get started by going to the next section: **Analyzying Movie Sales Data**.
+The next few labs are very comprehensive - consisting of many different types of analytic queries. Get started by going to the next lab:  [Analyzying Movie Sales Data](#next).
 
 ## Acknowledgements
 

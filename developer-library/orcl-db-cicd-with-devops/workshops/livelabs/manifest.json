@@ -1,0 +1,35 @@
+{
+  "workshoptitle": "Oracle Database CI/CD for Developers",
+    "help": "livelabs-help-db_us@oracle.com",
+	"tutorials": [
+        {
+            "title": "Introduction",
+            "description": "Oracle Database CI/CD for Developers",
+            "filename": "../../intro/intro.md"
+        },
+        {
+            "title": "Getting Started",
+            "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login-livelabs.md"
+        },
+        {
+            "title": "Lab 1: Clone and Create a Github Repository",
+            "description": "Clone and Create a Github Repository",
+            "filename": "../../repo/repo.md"
+        },
+        {
+            "title": "Lab 2: Create an Autonomous Database",
+            "description": "Create an Autonomous Database",
+            "filename": "../../createdb/createdb.md"
+        },
+        {
+            "title": "Lab 3: Use SQLcl and Liquibase for CI/CD",
+            "description": "Use SQLcl and Liquibase for CI/CD",
+            "filename": "../../cicd/cicd.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/need-help/need-help-livelabs.md"
+        }
+    ]
+}

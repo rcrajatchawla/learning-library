@@ -1,13 +1,13 @@
 # The last matching pattern has the most precedence.
-*                        @flavio-santino @kaymalcolm @tmcginn @kamryn-v @anooshapilli @davidastart @klazarz @malcherm
-/common/               @kaymalcolm @tmcginn @davidastart @klazarz @malcherm
-/ai-ml-library/       @kaymalcolm @tmcginn @kamryn-v @troyanthony06 @anooshapilli @davidastart @klazarz @malcherm
-/analytics-library/       @kaymalcolm @tmcginn @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @klazarz @malcherm
-/data-management-library/ @kaymalcolm @tmcginn @troyanthony06 @kamryn-v @anooshapilli @davidastart @klazarz @malcherm
-/developer-library/       @kaymalcolm @tmcginn @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil @flavio-santino @klazarz @malcherm
-/enterprise-manageability-library/       @kaymalcolm @tmcginn @rfontcha @kamryn-v @anooshapilli @davidastart @klazarz @malcherm
-/oci-library/             @flavio-santino @oegentil @kaymalcolm @tmcginn @davidastart @anooshapilli @kamryn-v @klazarz @malcherm
+*                        @flavio-santino @kaymalcolm @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle
+/common/               @kaymalcolm @davidastart @klazarz @malcherm
+/ai-ml-library/       @kaymalcolm @kamryn-v @troyanthony06 @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle
+/analytics-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle
+/data-management-library/ @kaymalcolm @troyanthony06 @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle
+/developer-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil @flavio-santino @klazarz @malcherm @william-masdon-oracle
+/enterprise-manageability-library/       @kaymalcolm @rfontcha @kamryn-v @anooshapilli @davidastart @klazarz @malcherm @william-masdon-oracle
+/oci-library/             @flavio-santino @oegentil @kaymalcolm @davidastart @anooshapilli @kamryn-v @klazarz @malcherm @william-masdon-oracle
 /ospa-library/            @jjking2019 @dankingsley001 @AlejandroCasas-oracle
-/solutions-library/       @kaymalcolm @tmcginn @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil @flavio-santino @klazarz @malcherm
-/security-library/       @kaymalcolm @tmcginn @troyanthony06 @rfontcha @anooshapilli @kamryn-v @davidastart @flavio-santino @oegentil @klazarz @malcherm
-/workshops/               @snicholspa @chipbaber @kaymalcolm @tmcginn @troyanthony06 @davidastart @klazarz @malcherm
+/solutions-library/       @kaymalcolm @troyanthony06 @kamryn-v @rfontcha @anooshapilli @davidastart @oegentil @flavio-santino @klazarz @malcherm @william-masdon-oracle
+/security-library/       @kaymalcolm @troyanthony06 @rfontcha @anooshapilli @kamryn-v @davidastart @flavio-santino @oegentil @klazarz @malcherm @william-masdon-oracle
+/workshops/               @snicholspa @chipbaber @kaymalcolm @troyanthony06 @davidastart @klazarz @malcherm @william-masdon-oracle

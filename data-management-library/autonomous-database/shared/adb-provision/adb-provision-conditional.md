@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you provision a new ADW instance.
+This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud. In this lab, you will provision a new ADW instance.
 
  **Note:** While this lab uses ADW, the steps are identical for creating an ATP database.
 
@@ -14,7 +14,7 @@ In this lab, you will:
 
 -   Learn how to provision a new Autonomous Database
 
-## Task 1: Choosing ADW or ATP from the Services Menu
+## Task 1: Choose ADW or ATP from the Services Menu
 
 1. Login to the Oracle Cloud.
 2. Once you are logged in, you are taken to the cloud services dashboard where you can see all the services available to you. Click the navigation menu in the upper left to show top level navigation choices.
@@ -47,7 +47,7 @@ In this lab, you will:
     ![Select region on the far upper-right corner of the page.](./images/task1-6.png " ")
 </if>
 
-## Task 2: Creating the ADB Instance
+## Task 2: Create the ADB Instance
 
 1. Click **Create Autonomous Database** to start the instance creation process.
 
@@ -149,7 +149,7 @@ In this lab, you will:
 
     ![Database instance homepage.](./images/task2-11.png " ")
 
-Please *proceed to the next lab*.
+You may now **proceed to the next lab**.
 
 ## Learn More
 

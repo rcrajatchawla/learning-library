@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will provision a Oracle linux compute instance and log into the instance. Then provision the 21c Oracle Autonomous Database (ADB) instance and connect to the database as new user.
+In this lab, you will provision a Oracle linux compute instance and log into the instance. Then provision the Oracle Autonomous Database (ADB) instance and connect to the database as new user.
 
 Estimated Time: 20 minutes
 
@@ -11,7 +11,7 @@ Estimated Time: 20 minutes
 In this lab, you will:
 
 - Provision a Oracle Linux compute instance and SSH into the instance
-- Provision an Oracle 21c Autonomous Transaction Processing instance
+- Provision an Oracle Autonomous Transaction Processing instance
 - Create a new database user using Database Actions
 - Connect to ATP database as a new user from SQL Developer Web
 
@@ -169,7 +169,7 @@ Congratulations!  You now have a fully functional Linux instance running on Orac
     - **Choose a workload type** - For this lab, choose __Transaction Processing__ as the workload type.
     - **Choose a deployment type** - For this lab, choose **Shared Infrastructure** as the deployment type.
     - **Always Free** - If your Cloud Account is an Always Free account, you can select this option to create an always free autonomous database. An always free database comes with 1 CPU and 20 GB of storage. For this lab, we recommend you to check **Always Free**.
-    - **Choose database version** - Select **21c** database version from the available database versions.
+    - **Choose database version** - Select a database version from the available database versions.
     - **OCPU count** - Number of CPUs for your service. Leave as it is. An Always Free databas comes with 1 CPU.
     - **Storage (TB)** - Storage capacity in terabytes. Leave as it is. An Always Free database comes with 20 GB of storage.
     - **Auto Scaling** - For this lab, leave auto scaling unchecked.
@@ -220,7 +220,7 @@ Congratulations!  You now have a fully functional Linux instance running on Orac
 
     ![](./images/task4-6.png " ")
 
-7. In the Create User page, under Grant Roles tab, search for all three of these roles: **CONNECT**, **RESOURCE**, **DWROLE**. Check both the Granted Admin and Default checkboxes for each one.
+7. In the Create User page, under Grant Roles tab, search for all three of these roles: **CONNECT**, **RESOURCE**, **DWROLE**. Check both the Granted and Default checkboxes for each one.
 
     ![](./images/task4-71.png " ")
     ![](./images/task4-72.png " ")

@@ -1,5 +1,5 @@
 {
-  "workshoptitle": "Building Microservices with Oracle Converged Database",
+  "workshoptitle": "Building Microservices with Converged Oracle Database",
   "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
       {
@@ -32,7 +32,7 @@
       },
       {
         "title": "Lab 5: Observability",
-        "filename": "../../tracing/tracing.md"
+        "filename": "../../observability/observability.md"
       },
       {
         "title": "Lab 6: Tear Down",

@@ -25,9 +25,7 @@ In this lab you will learn:
 
 ### Prerequisites
 - A Free Tier, Paid or LiveLabs Oracle Cloud account
-- SSH Private Key to access the host via SSH (*Free-tier* and *Paid Tenants* only)
 - You have completed:
-    - Lab: Generate SSH Keys (*Free-tier* and *Paid Tenants* only)
     - Lab: Prepare Setup (*Free-tier* and *Paid Tenants* only)
     - Lab: Environment Setup
     - Lab: Initialize Environment
@@ -35,7 +33,7 @@ In this lab you will learn:
 *Note*: This lab environment is setup with Enterprise Manager Cloud Control Release 13.5 and Database 19.10 as Oracle Management Repository.
 
 ## Task 1: Prepare Database
-Select between *STEP 1A* and *STEP 1B*
+Select between *Task 1A* and *Task 1B*
 
 ## Task 1A: Prepare Database Using EM Console
 
@@ -69,7 +67,7 @@ Select between *STEP 1A* and *STEP 1B*
 
 ## Task 1B: Prepare database Using the terminal
 
-1. Instead of *STEP 1* above, you may run the block below from the terminal as user *oracle*
+1. Instead of *Task 1A* above, you may run the block below from the terminal as user *oracle*
 
     ```
     <copy>
@@ -140,7 +138,7 @@ Select between *STEP 1A* and *STEP 1B*
 
 14. Click on the **activity** tab to understand about the activity breakdown for this SQL.
 
-16. Click on **Save** button on the top right corner of the page. This will help you to save this monitored execution in “.html” format, which can be used to share or to diagnose offline.
+16. Click on **Save Report** button on the top right corner of the page. This will help you to save this monitored execution in “.html” format, which can be used to share or to diagnose offline.
 
 ## Task 3: Real-Time Database Operations Monitoring
 
@@ -148,9 +146,8 @@ Select between *STEP 1A* and *STEP 1B*
 
     ```
     <copy>
-    cd scripts
     source SALESENV
-    cd load/frame/queries/awrv</copy>
+    cd scripts/load/frame/queries/awrv</copy>
     ```
 
 2. Using SQLPlus connect to the sh2 account. Open the file (!vi DBOP.sql) from the SQL prompt and then review the content of the file. At the beginning of the file you will notice how we have tagged the operation with dbms\_sql\_monitor.begin\_operation and ended it with dbms\_sql\_monitor.end\_operation.
@@ -173,7 +170,7 @@ Now execute the file \@DBOP.sql
 
     ![](images/a59f28bdd1166978c41e9c9c6a5d9b93.jpg " ")
 
-6.  Click on the **Activity** tab. You will see all the activity for this operation.
+6.  Click on the **Metric** tab. You will see all the activity for this operation.
 
     ![](images/1a32fbdd89e519c2b8401e7dd0626890.jpg " ")
 
