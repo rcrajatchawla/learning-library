@@ -66,10 +66,10 @@ Invoke Language OCI REST APIs by clicking any one of the requests in the Languag
 }<copy>
     ```
     
-Below in the example shown to invoke Detect Language Service.
+Below is the example shown to invoke Detect Language Service.
     ![](./images/detectLanguage.png " ")
 
-OCI Language Service EndPoints for all the services:
+OCI Language service endpoints:
 
 ```
 # Language Detection
