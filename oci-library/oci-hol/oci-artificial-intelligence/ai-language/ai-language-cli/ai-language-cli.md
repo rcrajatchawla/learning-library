@@ -106,7 +106,7 @@ Run this command : oci ai language batch-detect-key-phrases --documents, -? | -h
 ]'</copy>
     ```
 
-### 4. Aspect-Based Sentiment Analysis
+### 4. Sentiment Analysis
 Run this command : oci ai language batch-detect-sentiments --documents, -? | -h | --help
     ```
     <copy>oci ai language batch-detect-sentiments --documents '[

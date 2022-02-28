@@ -3,7 +3,7 @@
 ## Introduction
 In this session, we will help users to get familiar with our OCI Language and teach them to use our services via the cloud console.
 You can use one or more of these text analysis tools to analyze your text with the Language service:
-- Aspect-Based Sentiment Analysis
+- Sentiment Analysis
 - Named Entity Recognition
 - Key Phrase Extraction
 - Language Detection

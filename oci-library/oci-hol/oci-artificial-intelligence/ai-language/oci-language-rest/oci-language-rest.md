@@ -84,7 +84,7 @@ https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/bat
 # Text Classification
 https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/batchDetectLanguageTextClassification
 
-# Aspect-Based Sentiment Analysis
+# Sentiment Analysis
 https://language.aiservice.us-ashburn-1.oci.oraclecloud.com/20210101/actions/batchDetectLanguageSentiments
 
 ```
