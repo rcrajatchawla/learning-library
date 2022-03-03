@@ -25,7 +25,7 @@ Visit the [OCI Postman workspace](https://www.postman.com/oracledevs/workspace/o
 
 ### 2. Fork the Language APIs and OCI Credentials Environment.
 
-Fork the Langauge API collection in your workspace by navigating to Language API collection and clicking the "Fork" option.
+Fork the Language API collection in your workspace by navigating to Language API collection and clicking the "Fork" option.
 ![](./images/forkLangugeApi1.png)
 
 Enter name to indentify forked Language API collection, select the workspace you want to fork the collection to and click "Fork Collection".
