@@ -88,30 +88,31 @@ You can reset the page by clicking Reset button.
 
 After you analyze your text, the Language service displays the results by category for the selected tools as follows:
 
-### 1: Sentiment Analysis
-
-Renders the document level, aspect based and sentence level sentiment with score.
-    ![](./images/sentiment-result.png " ")
-
-### 2: Named Entity Recognition
-
-Identifies the named entities that were found and their categories are indicated.
-    ![](./images/ner-result.png " ")
-
-### 3: Key Phrase Extraction
-
-Lists the key phrases detected from the text.
-    ![](./images/kpe-result.png " ")
-
-### 4: Language Detection
+### 1: Language Detection
 
 Lists, by confidence percentage, the languages detected.
     ![](./images/lang-result.png " ")
 
-### 5: Text Classification
+ ### 2: Text Classification
 
-Lists the word, identified document category, and the confidence score.
+Identify the category and sub-category for given input text.
     ![](./images/text-result.png " ")
+
+### 3: Named Entity Recognition
+
+Identifies the named entities that were found and their categories are indicated.
+    ![](./images/ner-result.png " ")
+
+### 4: Key Phrase Extraction
+
+Lists the key phrases detected from the text.
+    ![](./images/kpe-result.png " ")
+
+### 5: Sentiment Analysis
+
+Renders the document level, aspect based and sentence level sentiment with score.
+    ![](./images/sentiment-result.png " ")
+
 
 ## **TASK 3:** Viewing the Results in JSON
 

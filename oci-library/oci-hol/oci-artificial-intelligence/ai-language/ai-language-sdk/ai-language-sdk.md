@@ -48,7 +48,7 @@ Open the Profile menu (User menu icon) and click User Settings.
     ![](./images/userProfileIcon.png " ")
 
 ### 2. Open API Key
-Navigate to API Key and then Click Add API Key.
+Navigate to API Keys and then Click Add API Key.
     ![](./images/addAPIButton.png " ")
 
 ### 3. Generate API Key

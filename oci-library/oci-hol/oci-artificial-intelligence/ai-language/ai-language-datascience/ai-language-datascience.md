@@ -98,7 +98,7 @@ Open the notebook session that was provisioned.
 ## **TASK 2:** Invoke the Language Service
 
 ### 1. Download and Upload the Files
-Download this [Sentiment Analysis](./files/Sentiment_Batch.ipynb) and [Named Entitiy Recognition](./files/NER_Batch.ipynb) files and upload it in the Notebook. 
+Download this [Sentiment Analysis](./files/Sentiment.ipynb) and [Named Entitiy Recognition](./files/NER.ipynb) files and upload it in the Notebook. 
 Download this [Dataset](./files/Data.csv) and upload it in the Notebook.
     ![](./images/uploadFiles.png " ")
 
