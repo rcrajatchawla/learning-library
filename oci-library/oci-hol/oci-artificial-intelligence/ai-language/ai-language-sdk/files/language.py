@@ -1,6 +1,6 @@
 import oci
  
-ai_client = oci.ai_language.AIServiceLanguageClient(oci.config.from_file(), service_endpoint="https://language.aiservice.us-ashburn-1.oci.oraclecloud.com")
+ai_client = oci.ai_language.AIServiceLanguageClient(oci.config.from_file())
 #Input Text
 text1 = "The Indy Autonomous Challenge is the worlds first head-to-head, high speed autonomous race taking place at the Indianapolis Motor Speedway"
 text2 = "Using high-performance GPU systems in the Oracle Cloud, OCI will be the cloud engine for the artificial intelligence models that drive the MIT Driverless cars competing in the Indy Autonomous Challenge."
